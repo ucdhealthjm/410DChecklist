@@ -25,6 +25,13 @@ h1{margin:4px 0 2px;font-size:21px;font-weight:700;line-height:1.2}
 .tempnote{margin-top:12px;background:rgba(181,133,10,.18);border:1px solid rgba(181,133,10,.55);
   color:#ffe9b3;border-radius:8px;padding:8px 11px;font-size:12.5px;line-height:1.45}
 .tempnote b{color:#fff}
+.previewbar{display:flex;align-items:center;gap:12px;text-decoration:none;margin:14px 0 0;
+  background:#eef4fb;border:1px solid #cfe0f3;border-left:3px solid var(--ucd-blue);border-radius:10px;padding:11px 14px}
+.previewbar:hover{background:#e4eefa}
+.pbmain{flex:1 1 auto;min-width:0}
+.pbhead{font-size:13.5px;font-weight:700;color:var(--ucd-blue);line-height:1.3}
+.pbsub{font-size:11.5px;color:var(--muted);line-height:1.4;margin-top:2px}
+.pbarrow{flex:0 0 auto;font-size:20px;color:var(--ucd-blue);font-weight:700}
 
 .toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 0 4px;
   border-bottom:1px solid var(--line);margin-bottom:6px}
@@ -133,6 +140,14 @@ footer{color:var(--muted);font-size:11.5px;text-align:center;padding:22px 16px 8
 </div></header>
 
 <div class="wrap">
+  <!-- EDIT THIS URL if the standardized tool lives elsewhere -->
+  <a class="previewbar" href="https://ucdhealthjm.github.io/StandardizedChecklist/" target="_blank" rel="noopener">
+    <div class="pbmain">
+      <div class="pbhead">In development: a proposed evidence-graded standardized exam</div>
+      <div class="pbsub">An independent project, not a UCDH or BIMSON requirement. For reference and visualization only.</div>
+    </div>
+    <span class="pbarrow">&#8594;</span>
+  </a>
   <div class="toolbar">
     <div class="legend">
       <span><i class="dot d2"></i> 2 correct</span>
