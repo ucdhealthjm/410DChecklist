@@ -1,317 +1,1815 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>410D Comprehensive PE &mdash; Practice</title>
+<title>The Standardized Physical Examination</title>
 <style>
-:root{
-  --ucd-blue:#022851; --ucd-gold:#b5850a; --bg:#f4f5f7; --card:#ffffff;
-  --ink:#1a1f24; --muted:#5b6570; --line:#e2e6ea; --link:#1f6feb;
-  --g2:#1c7d3e; --g1:#c78a00; --g0:#9aa3ad; --g2bg:#e7f4ec; --g1bg:#fbf3dd; --g0bg:#eef0f2;
-  --shadow:0 1px 2px rgba(2,40,81,.06),0 2px 8px rgba(2,40,81,.05);
-}
-*{box-sizing:border-box}
-html,body{margin:0}
-body{background:var(--bg);color:var(--ink);
-  font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  -webkit-text-size-adjust:100%;padding-bottom:112px}
-.wrap{max-width:900px;margin:0 auto;padding:0 16px}
-header.top{background:var(--ucd-blue);color:#fff}
-.top .wrap{padding:18px 16px 16px}
-.eyebrow{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#a9c2e0;font-weight:600}
-h1{margin:4px 0 2px;font-size:21px;font-weight:700;line-height:1.2}
-.sub{color:#cdd9e8;font-size:13px}
-.tempnote{margin-top:12px;background:rgba(181,133,10,.18);border:1px solid rgba(181,133,10,.55);
-  color:#ffe9b3;border-radius:8px;padding:8px 11px;font-size:12.5px;line-height:1.45}
-.tempnote b{color:#fff}
-.previewbar{display:flex;align-items:center;gap:12px;text-decoration:none;margin:14px 0 0;
-  background:#eef4fb;border:1px solid #cfe0f3;border-left:3px solid var(--ucd-blue);border-radius:10px;padding:11px 14px}
-.previewbar:hover{background:#e4eefa}
-.pbmain{flex:1 1 auto;min-width:0}
-.pbhead{font-size:13.5px;font-weight:700;color:var(--ucd-blue);line-height:1.3}
-.pbsub{font-size:11.5px;color:var(--muted);line-height:1.4;margin-top:2px}
-.pbarrow{flex:0 0 auto;font-size:20px;color:var(--ucd-blue);font-weight:700}
+  :root{
+    /* UC Davis: Aggie Blue #022851, Aggie Gold #FFBF00 */
+    --paper:#FAFBFC; --sheet:#FFFFFF; --ink:#1B2A3A; --muted:#5B6B7B;
+    --accent:#022851; --accent-soft:#E7EDF4; --line:#D5DCE5; --line-soft:#E7ECF2;
+    --gold:#FFBF00; --gold-dark:#E6AC00;
+    --local:#8A6D00; --local-bg:#FFF8E1;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:"Avenir Next","Avenir","Seravek","Segoe UI",system-ui,sans-serif;
+    font-size:15px; line-height:1.45;
+  }
+  button{font:inherit; cursor:pointer}
 
-.toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 0 4px;
-  border-bottom:1px solid var(--line);margin-bottom:6px}
-.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
-.legend span{display:inline-flex;align-items:center;gap:6px}
-.dot{width:11px;height:11px;border-radius:3px;display:inline-block}
-.d2{background:var(--g2)}.d1{background:var(--g1)}.d0{background:var(--g0)}
-.grow{flex:1 1 auto}
-.tgl{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink);cursor:pointer;user-select:none}
-.tgl input{accent-color:var(--ucd-blue);width:16px;height:16px}
+  .topbar{display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:12px 22px; background:var(--accent); color:#fff; position:sticky; top:0; z-index:40}
+  .topbar h1{font-size:16.5px; margin:0; font-weight:600; letter-spacing:.2px}
+  .topbar .sub{font-size:12px; opacity:.72}
+  .topbar .spacer{flex:1}
+  .modeswitch{display:flex; background:rgba(255,255,255,.12); border-radius:6px; padding:3px}
+  .modeswitch button{background:none; border:none; color:#fff; opacity:.8; padding:6px 14px; border-radius:4px; font-size:13px; font-weight:600}
+  .modeswitch button.on{background:var(--gold); color:var(--accent); opacity:1}
+  .lensswitch{display:flex; gap:3px; background:rgba(255,255,255,.12); border-radius:6px; padding:3px}
+  .lensswitch button{background:none; border:none; color:#fff; opacity:.72; padding:6px 12px; border-radius:4px; font-size:12.5px; font-weight:600; cursor:pointer; white-space:nowrap}
+  .lensswitch button.on{background:#fff; color:var(--accent); opacity:1}
+  .chip{background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.25); border-radius:4px; padding:4px 10px; font-size:13px; font-variant-numeric:tabular-nums}
+  .btn-print{background:var(--gold); color:var(--accent); border:none; border-radius:4px; padding:7px 14px; font-weight:600; font-size:13px}
+  .btn-print.ghost{background:rgba(255,255,255,.14); color:#fff; border:1px solid rgba(255,255,255,.35)}
+  .btn-print:hover{background:var(--gold-dark); color:var(--accent)}
+  .btn-print.ghost:hover{background:rgba(255,255,255,.24); color:#fff}
+  .btn-print:focus-visible,.toggle input:focus-visible,button:focus-visible,input.ck:focus-visible,.pick:focus-visible{outline:2px solid var(--gold); outline-offset:2px}
 
-details.sec{background:var(--card);border:1px solid var(--line);border-radius:12px;
-  margin:14px 0;box-shadow:var(--shadow);overflow:hidden}
-details.sec>summary{list-style:none;cursor:pointer;padding:13px 16px;display:flex;align-items:center;gap:12px;user-select:none}
-details.sec>summary::-webkit-details-marker{display:none}
-.chev{color:var(--muted);transition:transform .18s;font-size:12px;flex:0 0 auto}
-details[open]>summary .chev{transform:rotate(90deg)}
-.secname{font-weight:700;font-size:15.5px;flex:1 1 auto;color:var(--ucd-blue)}
-.secscore{font-variant-numeric:tabular-nums;font-weight:700;font-size:13.5px;color:var(--ink);
-  background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:3px 11px;white-space:nowrap}
-.secbar{height:4px;background:var(--line)}
-.secbar>i{display:block;height:100%;background:var(--ucd-gold);width:0;transition:width .2s}
+  .wrap{display:flex; gap:26px; padding:22px; max-width:1360px; margin:0 auto; align-items:flex-start}
+  aside{width:300px; flex:0 0 300px; display:flex; flex-direction:column; gap:16px}
+  main{flex:1; min-width:0}
+  @media (max-width:900px){ .wrap{flex-direction:column} aside{width:100%; flex:1 1 auto} }
 
-.rows{padding:2px 0 8px}
-.row{display:flex;gap:12px;align-items:flex-start;padding:9px 16px;border-top:1px solid var(--line)}
-.row:first-child{border-top:none}
-.rmain{flex:1 1 auto;min-width:0}
-.rtop{display:flex;gap:9px;align-items:flex-start}
-.info{flex:0 0 auto;width:19px;height:19px;margin-top:2px;border-radius:50%;border:1.4px solid var(--line);
-  background:#fff;color:var(--muted);font-size:11px;font-weight:700;line-height:1;cursor:pointer;font-style:italic;
-  -webkit-appearance:none;padding:0}
-.info:hover{border-color:var(--ucd-blue);color:var(--ucd-blue)}
-.info.open{background:var(--ucd-blue);border-color:var(--ucd-blue);color:#fff}
-.txt{font-size:13.6px;line-height:1.42}
-.row.dim .txt{color:var(--muted)}
-.tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
-  border-radius:4px;padding:0 5px;margin-left:7px;vertical-align:1px;white-space:nowrap}
-.tag.practice{color:var(--ucd-gold);border:1px solid var(--ucd-gold)}
-.tag.linked{color:var(--link);border:1px solid var(--link)}
-.help{margin:6px 0 0 28px;font-size:12.6px;line-height:1.5;color:var(--ink);
-  background:#f7f9fb;border-left:3px solid var(--ucd-gold);padding:7px 11px;border-radius:0 7px 7px 0}
-.help .hlabel{display:block;font-size:10px;letter-spacing:.07em;text-transform:uppercase;font-weight:700;
-  color:var(--ucd-gold);margin-bottom:2px}
-.help.say{border-left-color:var(--link)}
-.help.say .hlabel{color:var(--link)}
-.help.say .htext{font-style:italic;color:#2a3340}
-.help.narrate{border-left-color:#6b46c1}
-.help.narrate .hlabel{color:#6b46c1}
-.help.narrate .htext{font-style:italic;color:#2a3340}
-.help.tip{border-left-color:var(--muted)}
-.help.tip .hlabel{color:var(--muted)}
-.help.tip .htext{color:var(--muted)}
-.help.how .htext{color:#2a3340}
-.help.linknote{border-left-color:var(--link)}
-.reflink{display:inline-block;margin-top:8px;font-size:12.5px;font-weight:700;color:var(--ucd-blue);text-decoration:none;
-  border:1px solid #cfe0f3;background:#fff;border-radius:6px;padding:3px 10px}
-.reflink:hover{background:#e4eefa}
-.refnote{display:block;margin-top:5px;font-size:11px;color:var(--muted);font-style:normal}
-.scriptcard{margin:10px 16px 6px;background:#eef4fb;border:1px solid #cfe0f3;border-left:3px solid var(--ucd-blue);
-  border-radius:8px;padding:10px 13px}
-.sclabel{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;font-weight:700;color:var(--ucd-blue);margin-bottom:5px}
-.sctext{margin:0 0 6px;font-size:13.4px;line-height:1.55;font-style:italic;color:#22303f}
-.scnote{margin:0;font-size:11.5px;line-height:1.45;color:var(--muted)}
-.transline{margin:8px 16px 4px;font-size:12.6px;font-style:italic;color:#2a4058;background:#f3f7fc;
-  border-left:3px solid var(--ucd-blue);padding:6px 11px;border-radius:0 6px 6px 0}
-.transline b{display:block;font-style:normal;font-size:10px;letter-spacing:.06em;text-transform:uppercase;
-  color:var(--ucd-blue);font-weight:700;margin-bottom:1px}
-.closecard{background:var(--card);border:1px solid var(--line);border-left:3px solid #1c7d3e;border-radius:12px;
-  margin:14px 0;padding:12px 16px;box-shadow:var(--shadow)}
-.closecard .sclabel{color:#1c7d3e}
-.closecard p{margin:0;font-size:13.4px;line-height:1.55;font-style:italic;color:#22303f}
-.noinfo{display:inline-block;width:19px;flex:0 0 auto}
-.subhead{padding:10px 16px 4px;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
-  font-weight:700;color:var(--ucd-gold);border-top:1px solid var(--line)}
+  .panel{background:var(--sheet); border:1px solid var(--line); border-radius:6px; padding:14px 16px}
+  .panel h2{margin:0 0 10px; font-size:11.5px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--muted)}
+  .toggle{display:flex; align-items:center; gap:8px; padding:3px 0; font-size:13.8px}
+  .toggle input{accent-color:var(--accent)}
+  .toggle .pts{margin-left:auto; color:var(--muted); font-size:12px; font-variant-numeric:tabular-nums}
+  .radio{display:flex; align-items:center; gap:8px; padding:4px 0; font-size:14px}
+  .radio input{accent-color:var(--accent)}
+  .mini{display:flex; gap:8px; margin-top:8px}
+  .mini button{flex:1; border:1px solid var(--line); background:#fff; border-radius:4px; padding:4px 0; font-size:12.5px; color:var(--accent); font-weight:600}
+  .mini button:hover{background:var(--accent-soft)}
+  .rulebox{background:var(--accent-soft); border:1px solid #C9D9E8; border-radius:6px; padding:13px 15px; font-size:13px}
+  .rulebox h2{color:var(--accent)}
+  .rulebox p{margin:0 0 8px}
+  .rulebox p:last-child{margin:0}
+  .rulebox b{color:var(--accent)}
+  .raters{display:flex; flex-direction:column; gap:9px; margin-top:6px}
+  .rater{display:flex; gap:9px; align-items:flex-start; font-size:12.5px}
+  .rater .k{flex:0 0 74px; font-weight:700; color:var(--accent)}
+  .about{font-size:12px; color:var(--muted)}
+  .about p{margin:0 0 7px}
 
-.btns{flex:0 0 auto;display:flex;gap:5px}
-.btns button{width:34px;height:34px;border-radius:8px;border:1.5px solid var(--line);background:#fff;
-  color:var(--muted);font-weight:700;font-size:14px;cursor:pointer;-webkit-appearance:none;transition:transform .06s}
-.btns button:active{transform:scale(.9)}
-.btns button.on2{background:var(--g2bg);border-color:var(--g2);color:var(--g2)}
-.btns button.on1{background:var(--g1bg);border-color:var(--g1);color:var(--g1)}
-.btns button.on0{background:var(--g0bg);border-color:var(--g0);color:#4a5560}
+  .sheet{background:var(--sheet); border:1px solid var(--line); border-radius:6px; padding:34px 40px 40px; box-shadow:0 1px 3px rgba(27,42,58,.07)}
+  .sheet-head{border-bottom:3px solid var(--accent); padding-bottom:14px; margin-bottom:6px}
+  .sheet-head .prog{font-size:12px; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); border-bottom:1px dashed transparent; min-width:120px; display:inline-block}
+  .sheet-head .prog:hover,.sheet-head .prog:focus{border-bottom-color:var(--muted); outline:none}
+  .sheet-head h2{margin:2px 0 4px; font-size:23px; font-weight:700; color:var(--accent); text-wrap:balance}
+  .sheet-head .meta{font-size:12.5px; color:var(--muted)}
+  .idline{display:flex; gap:30px; margin:14px 0 4px; font-size:13px; color:var(--muted); flex-wrap:wrap}
+  .idline span{flex:1; min-width:150px; border-bottom:1px solid var(--line); padding-bottom:3px}
+  .idline .live{color:var(--accent); font-weight:700; font-variant-numeric:tabular-nums}
 
-.bar{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);
-  box-shadow:0 -2px 12px rgba(2,40,81,.08);z-index:20}
-.bar .wrap{display:flex;align-items:center;gap:12px;padding:9px 16px;flex-wrap:wrap}
-.total{font-weight:800;font-size:19px;color:var(--ucd-blue);font-variant-numeric:tabular-nums}
-.total small{font-weight:600;font-size:11.5px;color:var(--muted);display:block;letter-spacing:.02em}
-.pct{font-weight:800;font-size:15px;color:var(--g2);font-variant-numeric:tabular-nums;margin-left:2px}
-.timer{display:inline-flex;align-items:center;gap:8px}
-.clock{font-variant-numeric:tabular-nums;font-weight:800;font-size:18px;color:var(--ink);min-width:64px;text-align:center}
-.clock.run{color:var(--g2)}
-.bar button.b{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:8px;
-  padding:8px 12px;font-size:13px;font-weight:600;cursor:pointer}
-.bar button.b.primary{background:var(--ucd-blue);color:#fff;border-color:var(--ucd-blue)}
-.bar button.b.go{background:var(--g2);color:#fff;border-color:var(--g2)}
-.icon{width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--muted);
-  font-size:15px;cursor:pointer;padding:0;line-height:1}
-footer{color:var(--muted);font-size:11.5px;text-align:center;padding:22px 16px 8px;line-height:1.5}
-@media print{.bar,.tempnote,.toolbar,footer,.info,.btns{display:none}details.sec{break-inside:avoid} .help{display:block!important}}
-@media (max-width:480px){.btns button{width:37px;height:37px}.legend{width:100%}}
+  section.sys{margin-top:24px; break-inside:avoid-page}
+  .sys-head{display:flex; align-items:baseline; gap:10px; background:var(--accent); color:#fff; border-radius:4px 4px 0 0; padding:7px 14px}
+  .sys-head h3{margin:0; font-size:15px; font-weight:600; letter-spacing:.2px}
+  .sys-head .pts{margin-left:auto; font-size:12.5px; opacity:.85; font-variant-numeric:tabular-nums}
+  .ros{border-left:3px solid var(--gold); background:var(--accent-soft); margin:0; padding:7px 14px; font-size:13px}
+  .ros b{color:var(--accent)}
+  table.items{width:100%; border-collapse:collapse; border:1px solid var(--line-soft); border-top:none}
+  tr.phase td{background:var(--accent); color:#fff; padding:6px 14px; font-size:11px; font-weight:700; letter-spacing:.13em; text-transform:uppercase}
+  .ghead td{padding:7px 14px 4px; font-size:11.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--accent); border-top:1px solid var(--line-soft); background:#F3F7FA}
+  tr.item td{border-top:1px solid var(--line-soft); padding:5px 8px; vertical-align:top}
+  tr.item:hover td{background:#F6F9FB}
+  td.bx{width:34px; text-align:center; padding-top:6px}
+  input.ck{width:15px; height:15px; accent-color:var(--accent); cursor:pointer; margin:0}
+  td.score{width:70px; text-align:right; white-space:nowrap; color:var(--muted); font-size:12.5px; font-variant-numeric:tabular-nums; padding-right:14px; padding-top:6px}
+  td.opts{width:104px; text-align:right; white-space:nowrap; padding-right:12px; padding-top:4px}
+  .pick{display:inline-block; min-width:22px; text-align:center; border:1px solid var(--line); border-radius:3px; padding:1px 4px; margin-left:4px; font-size:12.5px; color:#8794A2; cursor:pointer; user-select:none; font-variant-numeric:tabular-nums}
+  .pick:hover{border-color:var(--accent); color:var(--accent)}
+  .pick.on{background:var(--accent); border-color:var(--accent); color:#fff; font-weight:700}
+  tr.local td{background:var(--local-bg)}
+  tr.local:hover td{background:#FFF3C4}
+  .local-chip{display:inline-block; font-size:10.5px; font-weight:700; letter-spacing:.06em; color:var(--local); border:1px solid var(--local); border-radius:3px; padding:0 5px; margin-left:7px; vertical-align:1px}
+  .rm{border:none; background:none; color:var(--local); font-size:14px; padding:0 4px}
+  .rmspec{border:none; background:none; color:#9AA7B4; font-size:12px; padding:0 3px; vertical-align:1px}
+  .rmspec:hover{color:#B3261E}
+  .vchip{display:inline-block; font-size:10px; font-weight:700; letter-spacing:.05em; color:var(--muted); border:1px solid var(--line); border-radius:3px; padding:0 4px; margin-left:6px; vertical-align:1px; white-space:nowrap}
+  .mini-restore{border:1px solid var(--line); background:#fff; border-radius:4px; padding:1px 8px; font-size:11.5px; color:var(--accent); font-weight:600}
+  .mini-restore:hover{background:var(--accent-soft)}
+  .addrow td{border-top:1px solid var(--line-soft); padding:5px 8px 7px 8px}
+  .addrow input{width:100%; border:1px dashed var(--line); border-radius:4px; padding:5px 9px; font:inherit; font-size:13.5px; background:transparent; color:var(--ink)}
+  .addrow input::placeholder{color:#9AA7B4}
+  .addrow input:focus{outline:none; border-color:var(--accent); background:#fff}
+  .evnote{border:1px solid var(--line-soft); border-top:none; padding:7px 14px; font-size:12.5px; font-style:italic; color:#55636F; background:#FAFBFC}
+  .evnote b{color:var(--accent); font-style:normal}
+  .osce-banner{background:var(--accent-soft); border:1px solid #C9D9E8; border-radius:6px; padding:11px 15px; font-size:12.5px; margin:16px 0 4px}
+  .osce-banner b{color:var(--accent)}
+  tr.subrow td.subc{padding-left:30px; color:var(--muted); font-size:12.8px; font-style:italic}
+  .sheet-foot{margin-top:30px; font-size:11.5px; color:var(--muted); border-top:1px solid var(--line); padding-top:10px}
+  .sheet-foot p{margin:0 0 6px}
+
+  /* Practice (peer-grading) mode: bigger tap targets, no rubric editing */
+  body.practice .pick{min-width:42px; padding:8px 0; margin-left:7px; font-size:16px; border-radius:6px}
+  body.practice td.opts{width:180px}
+  body.practice tr.item td{padding:10px 10px; font-size:15.5px}
+  body.practice .addrow,body.practice .rmspec,body.practice .vchip{display:none}
+  .tclock{font-size:34px; font-weight:700; text-align:center; font-variant-numeric:tabular-nums; color:var(--accent); margin:2px 0 8px; letter-spacing:1px}
+  .tclock.low{color:#B3261E}
+  .tdur{display:flex; align-items:center; gap:8px; font-size:13px; margin-bottom:8px}
+  .tdur input{width:60px; border:1px solid var(--line); border-radius:4px; padding:4px 6px; font:inherit}
+  .attempt{display:flex; justify-content:space-between; gap:10px; font-size:12.5px; padding:3px 0; font-variant-numeric:tabular-nums}
+  .attempt .pct{font-weight:700; color:var(--accent)}
+  .missed{font-size:12.5px; margin:0; padding-left:18px}
+  .missed li{margin:0 0 3px}
+  .btn-finish{width:100%; background:var(--gold); color:var(--accent); border:none; border-radius:5px; padding:9px 0; font-weight:700; font-size:14px; margin-top:6px}
+  .btn-finish:hover{background:var(--gold-dark)}
+
+  @media print{
+    @page{margin:14mm}
+    body{background:#fff; font-size:12.5px}
+    .topbar,aside{display:none}
+    .wrap{padding:0; display:block; max-width:none}
+    .sheet{border:none; box-shadow:none; padding:0; border-radius:0}
+    section.sys{break-inside:auto}
+    .sys-head,tr.phase td{border-radius:0; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+    tr.item{break-inside:avoid}
+    .rm,.addrow{display:none}
+    .pick{border-color:#999}
+    .pick.on{background:var(--accent) !important; color:#fff !important; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+    tr.local td{background:#FFF8E1 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+  }
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap">
-  <div class="eyebrow">UC Davis PA Program &middot; PAS 410D</div>
-  <h1>Comprehensive Head-to-Toe Physical Exam</h1>
-  <div class="sub">Practice checklist &middot; Final, Summer 2026 edition</div>
-  <div class="tempnote"><b>Practice copy.</b> This mirrors the current 410D comprehensive rubric so you can rehearse and self-score. Scores and your timer stay on this device only (nothing is submitted). This page is temporary and will be deleted when the updated standard is released.</div>
-</div></header>
 
-<div class="wrap">
-  <!-- EDIT THIS URL if the standardized tool lives elsewhere -->
-  <a class="previewbar" href="https://ucdhealthjm.github.io/StandardizedChecklist/" target="_blank" rel="noopener">
-    <div class="pbmain">
-      <div class="pbhead">In development: a proposed evidence-graded standardized exam</div>
-      <div class="pbsub">An independent project, not a UCDH or BIMSON requirement. For reference and visualization only.</div>
-    </div>
-    <span class="pbarrow">&#8594;</span>
-  </a>
-  <div class="toolbar">
-    <div class="legend">
-      <span><i class="dot d2"></i> 2 correct</span>
-      <span><i class="dot d1"></i> 1 partial</span>
-      <span><i class="dot d0"></i> 0 not done</span>
-    </div>
-    <div class="grow"></div>
-    <label class="tgl"><input type="checkbox" id="allHelp"> Show all guidance</label>
+
+<div class="topbar">
+  <div>
+    <h1>The Standardized Physical Examination</h1>
+    <div class="sub">Comprehensive PE · OSCE grading · Peer practice · CC BY-NC 4.0</div>
   </div>
-  <div id="app"></div>
-  <div class="closecard">
-    <div class="sclabel">Suggested closing</div>
-    <p>That completes the exam. I'll review my findings with my supervising provider, and then we'll come back to go over the plan together. Any questions before I step out?</p>
+  <div class="modeswitch">
+    <button id="mComp" class="on" onclick="setMode('comp')">Comprehensive PE</button>
+    <button id="mOsce" onclick="setMode('osce')">OSCE / SOAP grading</button>
+    <button id="mPrac" onclick="setMode('practice')">Practice</button>
   </div>
-  <footer>
-    <b style="color:var(--link)">LINKED</b> eye items (fields, pupils, EOM) score once across HEENT and Cranial Nerves.<br>
-    <b style="color:var(--ucd-gold)">PRACTICE</b> special tests include all exams you may be asked to perform. Once in the exam room, you will be provided with 2 special test cards indicating which of the exams to perform. Rehearse all special tests.
-  </footer>
+  <div class="lensswitch" id="lensswitch" style="display:none">
+    <button id="lContent" onclick="setLens('content')">SOAP content</button>
+    <button id="lComm" onclick="setLens('comm')">Video observation</button>
+    <button id="lBoth" class="on" onclick="setLens('combined')">Combined</button>
+  </div>
+  <div class="spacer"></div>
+  <div class="chip" id="topclock" style="display:none">15:00</div>
+  <div class="chip" id="scorechip">Score 0 / 0</div>
+  <button class="btn-print" onclick="window.print()">Save PDF</button>
+  <button class="btn-print ghost" onclick="exportDoc()">Download .doc</button>
 </div>
 
-<div class="bar"><div class="wrap">
-  <div class="total"><span id="tscore">0</span> / 248<span class="pct" id="tpct">0%</span>
-    <small>Official &middot; practice extras <span id="xscore">0</span>/<span id="xmax">0</span></small>
-  </div>
-  <div class="grow"></div>
-  <div class="timer">
-    <span class="clock" id="clock">00:00</span>
-    <button class="b go" id="tbtn" onclick="toggleTimer()">Start</button>
-    <button class="icon" title="Reset timer" onclick="resetTimer()">&#8635;</button>
-  </div>
-  <button class="b" onclick="window.print()">Print</button>
-  <button class="b primary" onclick="resetAll()">Reset</button>
-</div></div>
+<div class="wrap">
+  <aside id="aside"></aside>
+  <main>
+    <div class="sheet" id="sheet">
+      <div class="sheet-head">
+        <span class="prog" id="progname" contenteditable="true" spellcheck="false">Your program name — click to edit</span>
+        <h2 id="sheettitle">Standardized Physical Examination Rubric</h2>
+        <div class="meta" id="sheetmeta"></div>
+        <div class="idline"><span>Student</span><span>Evaluator</span><span>Date</span><span id="sheettot">Score: <span class="live">0</span> / 0</span></div>
+      </div>
+      <div id="osceBanner"></div>
+      <div id="sections"></div>
+      <div class="sheet-foot" id="sheetfoot"></div>
+    </div>
+  </main>
+</div>
 
 <script>
-const DATA=[{"title": "Setting the Stage & Information Gathering", "max": 12, "items": [{"id": "r4", "t": "Professional/clinic dress with white coat and name badge visible", "hk": "tip", "d": "No script here. Just confirm your white coat is on and your name badge faces out before you walk in.", "kind": "counted"}, {"id": "r5", "t": "Introduced themselves by first and last name and role of PA student", "hk": "", "d": "", "kind": "counted"}, {"id": "r6", "t": "Washed hands in view of the patient", "hk": "", "d": "", "kind": "counted"}, {"id": "r7", "t": "Verified the patient's full name, date of birth, and age", "hk": "", "d": "", "kind": "counted"}, {"id": "r8", "t": "Asks how patient would like to be addressed (including pronouns)", "hk": "", "d": "", "kind": "counted"}, {"id": "r9", "t": "Sets agenda for visit including length of visit", "hk": "", "d": "", "kind": "counted"}], "script": {"label": "Suggested opening script", "text": "Hi, my name is [your name], and I'm a PA student on your care team today. Can I confirm your full name and date of birth? Thank you, it's nice to meet you. How would you like me to address you? I use [your pronouns]; do you have pronouns you'd like me to use? Great. We have about 50 minutes scheduled today, and I'd like to use that time to do a comprehensive head-to-toe physical exam. Is that okay with you? Wonderful. Let me wash my hands, and then we'll get started.", "note": "Said as one natural flow this covers your introduction, the identity check, how to address the patient and pronouns, the agenda and consent, and hand hygiene. Swap in your own name, pronouns, and the scheduled time."}}, {"title": "General / Skin", "max": 16, "items": [{"id": "r13", "t": "Assess general appearance of patient (awareness/consciousness, distress, hygiene/grooming)", "hk": "narrate", "d": "Patient is awake, alert, well-groomed, and resting comfortably in no acute distress.", "kind": "counted"}, {"id": "r14", "t": "Palpate radial pulse bilaterally", "hk": "say", "d": "I'm going to feel the pulse at both of your wrists.", "kind": "counted"}, {"id": "r15", "t": "Assess pulse rate 15 seconds (one arm)-verbalize to patient", "hk": "say", "d": "I'll count your pulse for about fifteen seconds. Your heart rate is about seventy-two beats per minute.", "kind": "counted"}, {"id": "r16", "t": "Respiratory rate for 30 seconds- verbalize to patient", "hk": "tip", "d": "Count respirations quietly while you still appear to be taking the pulse, then report the rate aloud.", "kind": "counted"}, {"id": "r17", "t": "Measure blood pressure (one arm + verbalize normally would check both)", "hk": "say", "d": "I'm going to check your blood pressure. Normally I'd measure both arms; today I'll just do this one.", "kind": "counted", "url": "https://stanfordmedicine25.stanford.edu/the25/bppp.html"}, {"id": "r18", "t": "Verbalize vital signs to patient", "hk": "say", "d": "Your blood pressure, heart rate, and breathing all look good today.", "kind": "counted"}, {"id": "r19", "t": "Inspect skin for color changes, nail/nail beds, clubbing, lesions", "hk": "narrate", "d": "Skin is warm and dry, no rashes or lesions, nails without clubbing or cyanosis.", "kind": "counted", "url": "https://stanfordmedicine25.stanford.edu/the25/dermatology.html"}, {"id": "r20", "t": "Palpate skin for temperature, texture, turgor", "hk": "say", "d": "I'm just going to touch your skin to check its temperature and texture.", "kind": "counted"}], "trans": "I'll start by checking your vital signs and taking a look at your skin."}, {"title": "HEENT", "max": 44, "items": [{"id": "r23", "t": "Verbalize inspection of head, scalp and face (asymmetry, hair patterns, trauma)", "hk": "say", "d": "I'm going to look over your head and face now.", "kind": "counted"}, {"id": "r24", "t": "Palpation of head/skull, face and TMJ (deformities, depressions, lumps, or tenderness)", "hk": "say", "d": "I'm going to feel around your skull and jaw. Open and close your mouth for me, and tell me if anything's tender.", "kind": "counted"}, {"id": "r25", "t": "Verbalize inspection of eyes (sclera, conjunctiva)", "hk": "say", "d": "Looking at your eyes now, just keep them open for me.", "kind": "counted"}, {"id": "r26", "t": "Assess visual acuity OU, OS, OD (CN II)", "hk": "say", "d": "Cover one eye and read the smallest line you can make out.", "kind": "counted"}, {"id": "r27", "t": "Test visual fields by confrontation (CN II)", "hk": "say", "d": "Look right at my nose, and tell me when you notice my fingers wiggle.", "kind": "counted", "k": "vfields"}, {"id": "r28", "t": "Verbalize pupil accommodation", "hk": "say", "d": "Focus on my finger out here, now follow it in toward your nose.", "kind": "counted"}, {"id": "r29", "t": "Extra-ocular movements (verbalize CN III, IV, VI) *slowly", "hk": "say", "d": "Keep your head still and follow my finger with just your eyes.", "kind": "counted", "k": "eom"}, {"id": "r30", "t": "Eye convergence", "hk": "say", "d": "Watch my finger as it comes in toward the bridge of your nose.", "kind": "counted"}, {"id": "r31", "t": "Direct and consensual pupillary response (bilaterally)", "hk": "say", "d": "I'm going to shine a light in your eyes. Just look straight ahead for me.", "kind": "counted", "k": "pupils", "url": "https://stanfordmedicine25.stanford.edu/the25/pupillary.html"}, {"id": "r32", "t": "Perform fundoscopic exam with correct technique", "hk": "say", "d": "I'll dim the lights and look into the back of your eye with this scope. Keep looking at the wall behind me.", "kind": "counted", "url": "https://stanfordmedicine25.stanford.edu/the25/fundoscopic.html"}, {"id": "r33", "t": "Verbalize fundoscopic exam results", "hk": "narrate", "d": "Optic disc margins are sharp, cup-to-disc ratio is normal, vessels without hemorrhage or exudate.", "kind": "counted"}, {"id": "r34", "t": "Inspect/ palpate external ear structures (auricles/tragi/mastoids: tenderness, nodules, edema)", "hk": "say", "d": "I'm going to look at and feel around your ears. Let me know if anything's sore.", "kind": "counted"}, {"id": "r35", "t": "Perform otoscopic exam of external canal and middle ear (bracing hand)", "hk": "say", "d": "I'll look inside your ear now. This may feel a little snug for a moment.", "kind": "counted"}, {"id": "r36", "t": "Verbalize ear exam (canal and tympanic membrane: color, cone of light, perforations)", "hk": "narrate", "d": "Canal is clear, tympanic membrane pearly gray with a good light reflex and no perforation.", "kind": "counted"}, {"id": "r37", "t": "Inspect nose/face", "hk": "say", "d": "Just taking a look at your nose now.", "kind": "counted"}, {"id": "r38", "t": "Palpate maxillary and frontal sinuses bilaterally", "hk": "say", "d": "I'm going to press on your cheeks and forehead. Any tenderness?", "kind": "counted"}, {"id": "r39", "t": "Verbalize nasal speculum inspection (insert nasal speculum without touching the septum)", "hk": "narrate", "d": "I would use a nasal speculum here, opening it without touching the septum, to inspect the mucosa and turbinates.", "kind": "counted"}, {"id": "r40", "t": "Verbalize inspection of oral mucosa/gums/dentition/tongue and floor of mouth with light", "hk": "say", "d": "Open up for me and I'll shine a light inside to check your gums, teeth, tongue, and the floor of your mouth.", "kind": "counted", "url": "https://stanfordmedicine25.stanford.edu/the25/tongue.html"}, {"id": "r41", "t": "Verbalize inspection of posterior oral pharynx, tonsils (comment on tonsil size/erythema) with light", "hk": "say", "d": "Say 'ahh' for me while I look at the back of your throat.", "kind": "counted"}, {"id": "r42", "t": "Inspect and palpate trachea (deviation, masses)", "hk": "say", "d": "I'm going to feel the middle of your neck to check your windpipe.", "kind": "counted"}, {"id": "r43", "t": "Palpate thyroid gland with posterior approach (at rest and with swallowing)", "hk": "say", "d": "I'll feel your thyroid from behind. Take a sip of water and swallow when I tell you.", "kind": "counted", "url": "https://stanfordmedicine25.stanford.edu/the25/thyroid.html"}, {"id": "r44", "t": "Palpate and name lymph nodes (pre/post auricular, occipital, tonsillar, submandibular, submental, anterior/posterior cervical, and supraclavicular)", "hk": "say", "d": "I'm going to feel the glands in your neck, working around from front to back.", "kind": "counted", "url": "https://stanfordmedicine25.stanford.edu/the25/lymph.html"}, {"sub": "Special Tests"}, {"id": "r46", "t": "Weber Hearing Test (512 or 256Hz tuning fork )", "hk": "how", "d": "Place a vibrating 512/256 Hz fork on the vertex midline and ask where the sound is heard (normally midline).", "kind": "extra", "url": "https://www.physio-pedia.com/Weber_Test"}, {"id": "r47", "t": "Rinne Hearing Test bilaterally (512 or 256Hz tuning fork )", "hk": "how", "d": "Place the fork on the mastoid until sound stops, then beside the ear canal; normally air conduction outlasts bone conduction.", "kind": "extra", "url": "https://www.physio-pedia.com/Rinne_Test"}], "trans": "Now I'd like to examine your head, eyes, ears, nose, and throat."}, {"title": "Cranial Nerves", "max": 12, "items": [{"id": "r50", "t": "CN II – Upper and lower visual fields by confrontation, (no additional points if completed in HEENT)", "hk": "say", "d": "Look right at my nose, and tell me when you notice my fingers wiggle.", "kind": "mirror", "k": "vfields"}, {"id": "r51", "t": "CN II, III – Pupillary reaction to light (no additional points if completed in HEENT)", "hk": "say", "d": "I'm going to shine a light in each eye. Just look straight ahead.", "kind": "mirror", "k": "pupils", "url": "https://stanfordmedicine25.stanford.edu/the25/pupillary.html"}, {"id": "r52", "t": "CN III, IV, VI – Extraocular movements in H (no additional points if completed in HEENT)", "hk": "say", "d": "Keep your head still and follow my finger with just your eyes.", "kind": "mirror", "k": "eom"}, {"id": "r53", "t": "CN V – Palpate temporal/masseter with teeth clenched (motor)", "hk": "say", "d": "Clench your teeth for me while I feel the muscles at your temples and jaw.", "kind": "counted"}, {"id": "r54", "t": "CN V – Light touch of face bilaterally (sensory)", "hk": "say", "d": "Close your eyes and tell me if this feels the same on both sides of your face.", "kind": "counted"}, {"id": "r55", "t": "CN VII – Raise eyebrows, squeeze eyelids closed, smile, show teeth, puff cheeks", "hk": "say", "d": "Raise your eyebrows, squeeze your eyes shut, give me a big smile, show your teeth, and puff out your cheeks.", "kind": "counted"}, {"id": "r56", "t": "CN IX/X – “Ah” rising of soft palate (no additional points if completed in HEENT)", "hk": "say", "d": "Open up and say 'ahh' while I watch the roof of your mouth.", "kind": "counted"}, {"id": "r57", "t": "CN XI – Head turn against resistance and shoulder shrug bilaterally", "hk": "say", "d": "Turn your head against my hand, and now shrug your shoulders up while I press down.", "kind": "counted"}, {"id": "r58", "t": "CN XII – Protrude tongue", "hk": "say", "d": "Stick your tongue straight out for me.", "kind": "counted"}], "trans": "Next I'm going to test a few of the nerves in your face and head."}, {"title": "Thorax / Lungs", "max": 18, "items": [{"id": "r61", "t": "Observe general respiratory status (distress, rate, accessory muscle use, cyanosis, audible sounds)", "hk": "narrate", "d": "Patient is breathing comfortably, no accessory muscle use, cyanosis, or audible wheeze.", "kind": "counted"}, {"id": "r62", "t": "Inspect for asymmetry, deformities, and anterior-posterior diameter of thorax", "hk": "say", "d": "I'm going to watch your chest for a moment as you breathe.", "kind": "counted"}, {"id": "r63", "t": "Palpate anterior/ posterior chest", "hk": "say", "d": "I'll press along your chest and back. Let me know if anything's tender.", "kind": "counted"}, {"id": "r64", "t": "Percuss anterior chest at least 2 areas bilaterally", "hk": "say", "d": "I'm going to tap on your chest. You'll just hear a hollow sound.", "kind": "counted", "url": "https://stanfordmedicine25.stanford.edu/the25/pulmonary.html"}, {"id": "r65", "t": "Proper instruction to transition to posterior chest-cross arms, breath through open mouth", "hk": "say", "d": "Cross your arms in front of you and take slow, deep breaths through your mouth.", "kind": "counted"}, {"id": "r66", "t": "Percuss posterior chest- 6 or more areas bilaterally in ladder pattern", "hk": "say", "d": "I'll tap down your back now, moving side to side.", "kind": "counted", "url": "https://stanfordmedicine25.stanford.edu/the25/pulmonary.html"}, {"id": "r67", "t": "Auscultate lungs posteriorly at least 5 areas bilaterally in ladder pattern", "hk": "say", "d": "Keep taking those deep breaths while I listen down your back.", "kind": "counted"}, {"id": "r68", "t": "Auscultate lungs laterally- 1 or more spots bilaterally (through exp phase)", "hk": "say", "d": "A couple more deep breaths while I listen under your arms.", "kind": "counted"}, {"id": "r69", "t": "Auscultate lungs anteriorly at least 3 areas bilaterally", "hk": "say", "d": "And a few more while I listen across the front of your chest.", "kind": "counted"}, {"sub": "Special Tests"}, {"id": "r71", "t": "Tactile fremitus anteriorly", "hk": "how", "d": "Rest the ulnar edge of your hands on the anterior chest and feel the vibration as the patient says 'ninety-nine.'", "kind": "extra"}, {"id": "r72", "t": "Tactile fremitus posteriorly", "hk": "how", "d": "Repeat tactile fremitus over the posterior chest, comparing sides.", "kind": "extra"}, {"id": "r73", "t": "Voice transmission tests: bronchophony (posterior in ladder pattern or around area of concern)", "hk": "how", "d": "Auscultate while the patient says 'ninety-nine'; louder, clearer sound suggests consolidation.", "kind": "extra"}, {"id": "r74", "t": "Voice transmission tests: egophony (posterior in ladder pattern or around area of concern)", "hk": "how", "d": "Auscultate while the patient says 'eee'; a change to an 'A' sound suggests consolidation.", "kind": "extra"}, {"id": "r75", "t": "Voice transmission tests: whispered pectoriloquy (posterior in ladder pattern or around area of concern)", "hk": "how", "d": "Auscultate while the patient whispers 'one-two-three'; clear whispering suggests consolidation.", "kind": "extra"}], "trans": "I'm going to listen to your lungs now, so I'll have you take some slow deep breaths."}, {"title": "Cardiovascular", "max": 20, "items": [{"id": "r78", "t": "Patient is positioned supine with 30º elevation of head (unless otherwise stated)", "hk": "say", "d": "Let me raise the head of the bed a bit so you're comfortable.", "kind": "counted"}, {"id": "r79", "t": "Inspect for jugular venous pressure (JVP) and carotid pulsations (right side of neck only)", "hk": "narrate", "d": "Inspecting the right side of the neck for jugular venous pressure and carotid pulsation.", "kind": "counted", "url": "https://stanfordmedicine25.stanford.edu/the25/neck-exam-jugular-venous-pressure-measurement.html"}, {"id": "r80", "t": "Palpate carotid arteries bilaterally (one at a time)", "hk": "say", "d": "I'm going to feel the pulse in your neck, one side at a time.", "kind": "counted"}, {"id": "r81", "t": "Palpate precordium/PMI (precordium is supine, and PMI is LL decub) with palm/finger pads", "hk": "say", "d": "I'll place my hand on your chest to feel your heartbeat. Now roll onto your left side for me.", "kind": "counted", "url": "https://stanfordmedicine25.stanford.edu/the25/precordial.html"}, {"id": "r82", "t": "Auscultate carotids bilaterally for bruits with bell (patient holds their breath)", "hk": "say", "d": "Take a breath in and hold it while I listen to your neck.", "kind": "counted"}, {"id": "r83", "t": "Listen at the second right and left intercostal spaces, down the left sternal border to the fourth and fifth intercostal spaces, and across to the apex the six listening areas with the diaphragm, then the bell (see Bates p. 521)", "hk": "say", "d": "I'm going to listen to your heart in a few spots. Just breathe normally.", "kind": "counted", "url": "https://stanfordmedicine25.stanford.edu/the25/cardiac.html"}, {"sub": "Special Tests"}, {"id": "r85", "t": "Auscultate with bell at apex in left lateral decubitus position to listen for S3, S4, mitral stenosis", "hk": "how", "d": "With the patient in left lateral decubitus, listen at the apex with the bell for S3, S4, or mitral stenosis.", "kind": "extra"}, {"id": "r86", "t": "Auscultate with the diaphragm along the left sternal border and the apex with patient, leaning forward/exhaling, listening for aortic murmurs (special test)", "hk": "how", "d": "With the patient sitting, leaning forward and exhaling, listen along the left sternal border and apex with the diaphragm for aortic regurgitation.", "kind": "extra"}, {"id": "r87", "t": "Inspect legs/feet for any changes in size, symmetry, pigmentation, rashes, nail clubbing, or ulcers", "hk": "say", "d": "I'm going to take a look at your legs and feet.", "kind": "counted"}, {"id": "r88", "t": "Palpate for lower extremity leg edema bilaterally (push at least 3-5 secs on dorsum feet/shins)- starting distally and moving proximally", "hk": "say", "d": "I'll press on your shins and the tops of your feet for a few seconds.", "kind": "counted"}, {"id": "r89", "t": "Palpate dorsalis pedis/posterior tibialis bilaterally >moving to popliteal and femoral if nonpalpable (socks must be removed)", "hk": "say", "d": "I'm feeling the pulses in your feet now. I may check behind your knee as well.", "kind": "counted"}, {"id": "r90", "t": "Assess capillary refill/cyanosis of the toes (great toes)", "hk": "say", "d": "I'm going to press on your toenail and watch the color come back.", "kind": "counted"}], "trans": "Now I'd like to check your heart and the circulation in your legs."}, {"title": "Abdomen", "max": 22, "items": [{"id": "r93", "t": "Position patient appropriately (supine, legs are supported, arms are at side; knees bent for palpation)", "hk": "say", "d": "Lie back for me with your arms at your sides. I'll bend your knees to relax your belly.", "kind": "counted"}, {"id": "r94", "t": "Verbalize inspection of abdomen (ex: scars, aortic pulsations, flat, protuberant, or scaphoid)", "hk": "narrate", "d": "Abdomen is flat and symmetric, no scars, and no visible pulsations.", "kind": "counted"}, {"id": "r95", "t": "Auscultate for bowel sounds (4 spots or more) and MUST perform before palpation", "hk": "say", "d": "I'm going to listen to your belly first, before I press anywhere.", "kind": "counted"}, {"id": "r96", "t": "Auscultate aortic, iliac, renal arteries (verbalize no bruit)", "hk": "say", "d": "Still listening, checking the blood vessels in your abdomen.", "kind": "counted"}, {"id": "r97", "t": "Percuss generally for distribution of tympany and dullness in four quadrants", "hk": "say", "d": "I'm going to tap around your belly now.", "kind": "counted"}, {"id": "r98", "t": "Percuss- liver: measure the span of liver dullness at right midclavicular line", "hk": "say", "d": "Tapping here to find the edges of your liver.", "kind": "counted", "url": "https://stanfordmedicine25.stanford.edu/the25/liver.html"}, {"id": "r99", "t": "Percuss- spleen: assess for splenomegaly by percussing at the anterior axillary line with inspiration", "hk": "say", "d": "Take a deep breath in while I tap on your left side.", "kind": "counted", "url": "https://stanfordmedicine25.stanford.edu/the25/spleen.html"}, {"id": "r100", "t": "Palpate abdomen superficial (4 or more quadrants plus epigastrium) prefer 9 spots", "hk": "say", "d": "I'll press gently around your belly. Tell me if anything is tender.", "kind": "counted"}, {"id": "r101", "t": "Palpate abdomen deep (4 or more quadrants plus epigastrium) prefer 9 spots", "hk": "say", "d": "Now a little deeper. Let me know if it's sore anywhere.", "kind": "counted"}, {"id": "r102", "t": "Palpate for rebound tenderness to assess for peritoneal inflammation", "hk": "say", "d": "I'm going to press in and let go quickly. Tell me whether the pressing or the release hurts more.", "kind": "counted"}, {"id": "r103", "t": "Verbalize would perform rectal exam if clinically indicated", "hk": "narrate", "d": "If it were clinically indicated, I would also perform a rectal exam here.", "kind": "counted"}, {"sub": "Special Abdominal Exams"}, {"id": "r105", "t": "Appendicitis - palpate for McBurney's point tenderness RLQ", "hk": "how", "d": "Palpate McBurney point (RLQ, two-thirds from umbilicus toward the ASIS) for localized tenderness.", "kind": "extra"}, {"id": "r106", "t": "Appendicitis - palpate for Rovsing sign (right-sided pain during left-sided pressure)", "hk": "how", "d": "Press deeply in the LLQ; referred pain felt in the RLQ is a positive sign.", "kind": "extra", "url": "https://www.physio-pedia.com/Rovsing_Sign"}, {"id": "r107", "t": "Appendicitis - assess for psoas sign (pain during resisted right hip flexion or passive right hip extension)", "hk": "how", "d": "Flex the right hip against resistance, or passively extend the right hip; RLQ pain is positive.", "kind": "extra"}, {"id": "r108", "t": "Appendicitis - assess for obturator sign (pain with right hip flexion and internal rotation)", "hk": "how", "d": "Flex the right hip and knee and internally rotate the hip; RLQ pain is positive.", "kind": "extra", "url": "https://www.physio-pedia.com/Obturator_Sign"}, {"id": "r109", "t": "Cholecystitis - palpate for Murphy's sign RUQ (palpating the liver edge during inspiration)", "hk": "how", "d": "Hook your fingers under the right costal margin and ask the patient to inspire; an abrupt halt from pain is positive.", "kind": "extra", "url": "https://www.physio-pedia.com/Murphys_Sign"}, {"id": "r110", "t": "Costovertebral angle (CVA) tenderness (use fist percussion bilaterally)", "hk": "how", "d": "Place a hand over each costovertebral angle and strike it with the ulnar fist; flank pain suggests kidney inflammation.", "kind": "extra"}], "trans": "I'm going to examine your belly now, so let me know if anything feels tender."}, {"title": "Musculoskeletal", "max": 56, "items": [{"id": "r113", "t": "C-spine: Inspect/Palpate (verbalize)", "hk": "say", "d": "I'm going to look at and feel along your neck.", "kind": "counted"}, {"id": "r114", "t": "C-spine: AROM-Ext/Flex/Rot/Lateral Bend", "hk": "say", "d": "Bring your chin to your chest, look up at the ceiling, turn side to side, and tip each ear toward your shoulder.", "kind": "counted"}, {"id": "r115", "t": "C-spine: Motor strength: Ext/Flex/Rot/Lateral Bend", "hk": "say", "d": "Now hold each of those positions while I push against you.", "kind": "counted"}, {"id": "r116", "t": "Shoulder/Upper Arm: Inspect/palpate (verbalize)", "hk": "say", "d": "I'm going to look at and feel around both shoulders.", "kind": "counted", "url": "https://stanfordmedicine25.stanford.edu/the25/shoulder.html"}, {"id": "r117", "t": "Shoulder/Upper Arm: AROM: -Ext/Flex/Abd/Add/IR/ER", "hk": "say", "d": "Raise your arms forward, out to the side, and rotate them in and out for me.", "kind": "counted"}, {"id": "r118", "t": "Shoulder/Upper Arm: Motor strength: Ext/Flex/Abd/Add/IR/ER", "hk": "say", "d": "Hold each of those while I apply a little resistance.", "kind": "counted"}, {"id": "r119", "t": "Elbow/Wrist/Forearm: Inspect/Palpate (verbalize)", "hk": "say", "d": "I'll look at and feel your elbows and forearms.", "kind": "counted"}, {"id": "r120", "t": "Elbow/Wrist/Forearm: AROM Ext/Flex/Sup/Pron", "hk": "say", "d": "Bend and straighten your elbow, then turn your palm up and down.", "kind": "counted"}, {"id": "r121", "t": "Elbow/Wrist/Forearm: Motor strength: Ext/Flex/Sup/Pron", "hk": "say", "d": "Hold each of those while I push against you.", "kind": "counted"}, {"id": "r122", "t": "Hands: Inspect/Palpate (verbalize)", "hk": "say", "d": "I'm going to look at and feel your hands and fingers.", "kind": "counted", "url": "https://stanfordmedicine25.stanford.edu/the25/hand.html"}, {"id": "r123", "t": "Hands: AROM: Ext/Flex/UD/RD/Grip", "hk": "say", "d": "Straighten and bend your wrist, tilt it side to side, and give me a strong grip.", "kind": "counted"}, {"id": "r124", "t": "Hands: Motor strength: Ext/Flex/UD/RD/Grip", "hk": "say", "d": "Hold each of those while I resist.", "kind": "counted"}, {"id": "r125", "t": "TL Spine/Hips: Inspect/Palpate (verbalize)", "hk": "say", "d": "I'll look at and feel your back and hips.", "kind": "counted"}, {"id": "r126", "t": "TL Spine/Hips: AROM EXT/Flex/Rot/Lat Bend/Abd/Add/IR/ER", "hk": "say", "d": "Bend forward, lean back, twist, and side-bend, then move your hips out, in, and rotate them.", "kind": "counted"}, {"id": "r127", "t": "TL Spine/Hips: Motor strength: EXT/Flex/Rot/Lat Bend/Abd/Add/IR/ER", "hk": "say", "d": "Hold each of those against my resistance.", "kind": "counted"}, {"id": "r128", "t": "Knee: Inspect/Palpate (verbalize)", "hk": "say", "d": "I'm going to look at and feel your knee.", "kind": "counted", "url": "https://stanfordmedicine25.stanford.edu/the25/knee.html"}, {"id": "r129", "t": "Knee: AROM Ext/Flex", "hk": "say", "d": "Bend and straighten your knee for me.", "kind": "counted"}, {"id": "r130", "t": "Knee: Motor strength: Ext/Flex", "hk": "say", "d": "Hold each of those while I push and pull.", "kind": "counted"}, {"id": "r131", "t": "Ankle: Inspect/Palpate (verbalize)", "hk": "say", "d": "I'll look at and feel your ankle.", "kind": "counted"}, {"id": "r132", "t": "Ankle: AROM plantar flexion/dorsi flexion/eversion/inversion", "hk": "say", "d": "Point your toes down, pull them up, and turn your foot in and out.", "kind": "counted"}, {"id": "r133", "t": "Ankle: Motor strength: plantar flexion/dorsi flexion/eversion/Inversion", "hk": "say", "d": "Hold each of those against my hand.", "kind": "counted"}, {"id": "r134", "t": "Foot: Inspect/Palpate (verbalize)", "hk": "say", "d": "I'm going to look at and feel your foot and toes.", "kind": "counted"}, {"id": "r135", "t": "Biceps reflexes (C5/6) (verbalize nerve root)", "hk": "say", "d": "Let your arm go loose for me. Narrate the root aloud: biceps, C5 and C6.", "kind": "counted", "url": "https://stanfordmedicine25.stanford.edu/the25/tendon.html"}, {"id": "r136", "t": "Brachioradialis reflexes (C5/6) (verbalize nerve root)", "hk": "say", "d": "Relax your forearm. Brachioradialis, C5 and C6.", "kind": "counted", "url": "https://stanfordmedicine25.stanford.edu/the25/tendon.html"}, {"id": "r137", "t": "Triceps reflexes (C6/7)(verbalize nerve root)", "hk": "say", "d": "Let your arm hang loose. Triceps, C6 and C7.", "kind": "counted", "url": "https://stanfordmedicine25.stanford.edu/the25/tendon.html"}, {"id": "r138", "t": "Quadriceps reflexes (patellar) (L3/4) (verbalize nerve root)", "hk": "say", "d": "Let your leg dangle and relax. Patellar, L3 and L4.", "kind": "counted", "url": "https://stanfordmedicine25.stanford.edu/the25/tendon.html"}, {"id": "r139", "t": "Achilles (Ankle) reflexes (S1) (verbalize nerve root)", "hk": "say", "d": "Relax your foot for me. Achilles, S1.", "kind": "counted", "url": "https://stanfordmedicine25.stanford.edu/the25/tendon.html"}, {"id": "r140", "t": "Plantar reflexes (Babinski, pathologic)", "hk": "say", "d": "I'm going to stroke the bottom of your foot and watch your big toe.", "kind": "counted"}, {"sub": "Special Tests"}, {"id": "r142", "t": "Neer Sign (rotator cuff impingement)", "hk": "how", "d": "Stabilize the scapula and passively forward-flex the internally rotated arm; pain suggests subacromial impingement.", "kind": "extra", "url": "https://www.physio-pedia.com/Neer_Test"}, {"id": "r143", "t": "Hawkins Kennedy Test (rotator cuff impingement)", "hk": "how", "d": "Flex the shoulder and elbow to 90 degrees, then internally rotate the arm; pain suggests impingement.", "kind": "extra", "url": "https://www.physio-pedia.com/Hawkins_/_Kennedy_Impingement_Test_of_the_Shoulder"}, {"id": "r144", "t": "Tinel's Test (Carpal Tunnel)", "hk": "how", "d": "Tap over the carpal tunnel at the wrist; tingling into the fingers suggests median nerve irritation.", "kind": "extra", "url": "https://www.physio-pedia.com/Tinel%E2%80%99s_Test"}, {"id": "r145", "t": "Phalen's Test (Carpal Tunnel)", "hk": "how", "d": "Hold both wrists in full flexion for up to 60 seconds; tingling in the median distribution is positive.", "kind": "extra", "url": "https://www.physio-pedia.com/Phalen%E2%80%99s_Test"}, {"id": "r146", "t": "Finkelstein Test (DeQuervains)", "hk": "how", "d": "Have the patient tuck the thumb in a fist and ulnar-deviate the wrist; radial-side pain suggests De Quervain tenosynovitis.", "kind": "extra", "url": "https://www.physio-pedia.com/Finkelstein_Test"}, {"id": "r147", "t": "Patrick Test/FABER (Hip Impingement)", "hk": "how", "d": "Flex, abduct, and externally rotate the hip in a figure-4; groin or SI pain suggests hip or sacroiliac pathology.", "kind": "extra", "url": "https://www.physio-pedia.com/FABER_Test"}, {"id": "r148", "t": "FADDIR Test (Hip Impingement)", "hk": "how", "d": "Flex, adduct, and internally rotate the hip; groin pain suggests femoroacetabular impingement.", "kind": "extra", "url": "https://www.physio-pedia.com/FADIR_(Flexion,_Adduction,_Internal_Rotation)_Test"}, {"id": "r149", "t": "Lachmann Maneuver (ACL Tear)", "hk": "how", "d": "With the knee at 20-30 degrees, stabilize the femur and draw the tibia forward; increased translation with a soft endpoint suggests an ACL tear.", "kind": "extra", "url": "https://www.physio-pedia.com/Lachman_Test"}, {"id": "r150", "t": "McMurray Test (Meniscus Tear)", "hk": "how", "d": "Flex the knee, then extend while rotating the tibia; a painful click suggests a meniscal tear.", "kind": "extra", "url": "https://www.physio-pedia.com/McMurrays_Test"}, {"id": "r151", "t": "Thessaly Test (Lateral/Medial Meniscal Tears)", "hk": "how", "d": "With the patient standing on one flexed knee, rotate the body; joint-line pain or catching suggests a meniscal tear.", "kind": "extra", "url": "https://www.physio-pedia.com/Thessaly_test"}, {"id": "r152", "t": "Thompson Test (Achilles Tear)", "hk": "how", "d": "With the patient prone, squeeze the calf; absent plantarflexion suggests an Achilles rupture.", "kind": "extra", "url": "https://www.physio-pedia.com/Thompson_Test"}], "trans": "Next let's see how your joints and muscles are moving."}, {"title": "Neurological", "max": 36, "items": [{"id": "r155", "t": "Appearance and Behavior: (objective- LOC, posture, eye contact, dress & grooming, facial expression)", "hk": "narrate", "d": "Patient is alert and well-groomed, with appropriate eye contact and a normal, full affect.", "kind": "counted"}, {"id": "r156", "t": "Speech and Language: fluency- name common objects (ie pencil, key, button)", "hk": "say", "d": "What do you call this? (holding up a pen, then a key, then a button)", "kind": "counted"}, {"id": "r157", "t": "Speech and Language: comprehension- read statement and perform task (ex: \"stick tongue out\")", "hk": "say", "d": "Can you stick your tongue out for me? (any simple spoken or written command)", "kind": "counted"}, {"id": "r158", "t": "Speech and Language: repetition- \"no ifs, ands, or buts\"", "hk": "say", "d": "Repeat this exactly after me: 'no ifs, ands, or buts.'", "kind": "counted"}, {"id": "r159", "t": "Mood and Affect: patient to self-report (ex: anger, indifference, sadness)", "hk": "say", "d": "How would you describe your mood over the past couple of weeks?", "kind": "counted"}, {"id": "r160", "t": "Thoughts and Perceptions (logic, organization and coherence, \"how did you get here today\")", "hk": "say", "d": "Can you walk me through how you got here today?", "kind": "counted"}, {"id": "r161", "t": "Cognitive function: orientation (person: their name, place: where they are at, time: day or date)", "hk": "say", "d": "Can you tell me your name, where we are right now, and today's date?", "kind": "counted"}, {"id": "r162", "t": "Cognitive function: attention (repeat 5-7 digits forward and 3-5 backwards/spell WORLD backward)", "hk": "say", "d": "Repeat these numbers back to me, then try them in reverse. (or: spell the word 'world' backward)", "kind": "counted"}, {"id": "r163", "t": "Cognitive function: short term memory (pt. repeat 3 words from different categories after 5 min)", "hk": "say", "d": "I'm going to give you three words, apple, table, and penny, and I'll ask for them again in a few minutes.", "kind": "counted"}, {"id": "r164", "t": "Cognitive function: long term memory (birthdays, presidents, numbers)", "hk": "say", "d": "Can you tell me your date of birth, and who the president was before this one?", "kind": "counted"}, {"id": "r165", "t": "Coordination: UE- rapid alternating movements/point-to-point movements (hand pat and finger to nose)", "hk": "say", "d": "Pat your hand fast on your knee like this, then touch my finger and your nose, back and forth.", "kind": "counted", "url": "https://stanfordmedicine25.stanford.edu/the25/cerebellar.html"}, {"id": "r166", "t": "Coordination: LE- rapid alternating movements/point-to-point movements (taps feet and heel to shin)", "hk": "say", "d": "Tap your foot quickly, then run your heel down the front of your shin.", "kind": "counted", "url": "https://stanfordmedicine25.stanford.edu/the25/cerebellar.html"}, {"id": "r167", "t": "Coordination: gait- (standard, toe, heel, and heel-to-toe walking)", "hk": "say", "d": "Walk normally for me, then on your toes, then your heels, and then heel-to-toe.", "kind": "counted", "url": "https://stanfordmedicine25.stanford.edu/the25/gait.html"}, {"id": "r168", "t": "Coordination: Romberg (feet together, hands at side, eyes closed, looking for sway, 20-30 sec)", "hk": "say", "d": "Stand with your feet together and arms at your sides, then close your eyes and hold still. (stay close to steady them)", "kind": "counted"}, {"id": "r169", "t": "Coordination: Pronator drift (stands with both arms, outstretched, palms up, eyes closed 20–30 sec)", "hk": "say", "d": "Hold your arms out, palms up, and close your eyes. Keep them right there for me.", "kind": "counted"}, {"id": "r170", "t": "Sensory: light touch or sharp/dull stimuli (shoulders C4, inner and outer forearms C6/T1, thumb and 5th fingers C6/C8, thighs L2, medial/lateral calves L4/L5, fifth toes S1)- verbalize dermatomes", "hk": "say", "d": "Close your eyes and tell me if this feels sharp or dull, and whether it's the same on both sides.", "kind": "counted"}, {"id": "r171", "t": "Sensory: vibration (Perform on one digit on each extremity) (128 tuning fork)", "hk": "say", "d": "Close your eyes and tell me the moment the buzzing stops.", "kind": "counted"}, {"id": "r172", "t": "Sensory: proprioception/joint position (Perform on one digit on each extremity)", "hk": "say", "d": "Close your eyes and tell me whether I move your toe up or down.", "kind": "counted"}, {"sub": "Special Neurologic Exams"}, {"id": "r174", "t": "Stereognosis: common object identification by feeling in palm", "hk": "how", "d": "Place a common object in the palm with the eyes closed and ask the patient to identify it.", "kind": "extra"}, {"id": "r175", "t": "Graphesthesia: number/letter identification traced on palm", "hk": "how", "d": "Trace a number or letter on the palm with the eyes closed and ask the patient to identify it.", "kind": "extra"}, {"id": "r176", "t": "Meningeal: Brudzinski sign- flex neck, watch for flexion of hips and knees", "hk": "how", "d": "Passively flex the neck; involuntary hip and knee flexion suggests meningeal irritation.", "kind": "extra", "url": "https://www.physio-pedia.com/Brudzinski%E2%80%99s_Sign"}, {"id": "r177", "t": "Meningeal: Kernig sign- flex leg at hip and knee, straighten leg, look for pain and increased resistance", "hk": "how", "d": "Flex the hip and knee, then straighten the knee; pain or resistance suggests meningeal irritation.", "kind": "extra", "url": "https://www.physio-pedia.com/Kernig's_Sign"}, {"id": "r178", "t": "Straight-leg raise: Patient supine, passively raise leg, then dorsiflex foot> look for pain in low back", "hk": "how", "d": "With the patient supine, raise the straight leg then dorsiflex the foot; radiating pain suggests nerve-root irritation.", "kind": "extra", "url": "https://www.physio-pedia.com/Straight_Leg_Raise_Test"}, {"id": "r179", "t": "Asterixis (Flapping Tremor): extending both arms, with wrists dorsiflexed and fingers spread, 30 sec", "hk": "how", "d": "Have the patient hold the arms out with wrists dorsiflexed for about 30 seconds; a flapping tremor suggests metabolic encephalopathy.", "kind": "extra", "url": "https://stanfordmedicine25.stanford.edu/the25/involuntary-movements-and-tremors.html"}], "trans": "Now I'll check your coordination, strength, and sensation."}, {"title": "Overall Encounter", "max": 12, "items": [{"id": "r182", "t": "Approached the physical exam in an organized way", "hk": "tip", "d": "No script. Just move top-to-bottom in a logical order without jumping around and back.", "kind": "counted"}, {"id": "r183", "t": "Positioned at the patient's side rather than directly in front of the patient.", "hk": "tip", "d": "No script. Stand at the patient's side rather than looming directly in front of them.", "kind": "counted"}, {"id": "r184", "t": "Used appropriate language and prompts for patient", "hk": "tip", "d": "Use plain, everyday words and clear prompts. Skip the medical jargon.", "kind": "counted"}, {"id": "r185", "t": "Draped the patient appropriately, was attentive to modesty and comfort", "hk": "say", "d": "I'm going to fold the drape down just to here, and I'll cover you right back up afterward.", "kind": "counted"}, {"id": "r186", "t": "Special Test 1", "hk": "how", "d": "The special test you are assigned in the exam room. Score your performance of it here; this counts toward the 248.", "kind": "counted"}, {"id": "r187", "t": "Special Test 2", "hk": "how", "d": "A second assigned special test, if given. Score it here; this counts toward the 248.", "kind": "counted"}]}];
-const KEY="practice_410d_v2";
-let state=JSON.parse(localStorage.getItem(KEY)||"{}");
-function save(){localStorage.setItem(KEY,JSON.stringify(state));}
-const app=document.getElementById("app");
-let XMAX=0;
+const COMP = [
+ {
+  "title": "Setting the Stage and the Comprehensive History",
+  "ros": null,
+  "note": null,
+  "groups": [
+   {
+    "name": "Encounter set-up",
+    "items": [
+     {
+      "text": "Professional dress; identification visible"
+     },
+     {
+      "text": "Introduce yourself by name and role"
+     },
+     {
+      "text": "Wash hands in view of the patient"
+     },
+     {
+      "text": "Verify patient name and date of birth"
+     },
+     {
+      "text": "Ask how the patient wishes to be addressed (including pronouns)"
+     },
+     {
+      "text": "Set the agenda and expected visit length"
+     }
+    ]
+   },
+   {
+    "name": "History",
+    "items": [
+     {
+      "text": "Chief complaint in the patient's own words"
+     },
+     {
+      "text": "Allow an uninterrupted opening statement"
+     },
+     {
+      "text": "HPI: OLDCARTS (Onset, Location, Duration, Character, Alleviating/Aggravating, Radiation, Timing, Severity)"
+     },
+     {
+      "text": "Pertinent positives and negatives for the chief complaint"
+     },
+     {
+      "text": "Past medical history (diagnoses, control, last follow-up)"
+     },
+     {
+      "text": "Surgical history (type, year, indication)"
+     },
+     {
+      "text": "Family history (pertinent to the complaint)"
+     },
+     {
+      "text": "Social history: FED TACOS (Food, Exercise, Drugs, Tobacco, Alcohol, Caffeine, Occupation, Sexual/Safety)"
+     },
+     {
+      "text": "Medications (name, dose, route, frequency)"
+     },
+     {
+      "text": "Allergies (substance and reaction)"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "General Survey and Vital Signs",
+  "ros": "Change in weight, fever, fatigue, night sweats, chills.",
+  "note": "NEWS2 tracks ward deterioration better than isolated vitals; the Surviving Sepsis Campaign advises against qSOFA as a sole screen (too insensitive). Pair either with a lactate.",
+  "groups": [
+   {
+    "name": "General survey",
+    "items": [
+     {
+      "text": "Level of consciousness and orientation (A&O x4)"
+     },
+     {
+      "text": "Signs of distress"
+     },
+     {
+      "text": "Posture, gait, movement, body build"
+     },
+     {
+      "text": "Grooming, hygiene, body odor, facial expression"
+     },
+     {
+      "text": "Apparent versus stated age and sexual development"
+     }
+    ]
+   },
+   {
+    "name": "Vital signs",
+    "items": [
+     {
+      "text": "Blood pressure, correct technique",
+      "lr": "(hospitalized SBP < 90 predicts mortality, +LR ~15; Holler 2015)",
+      "tier": "C"
+     },
+     {
+      "text": "Pulse: rate, rhythm, amplitude"
+     },
+     {
+      "text": "Respiratory rate (count unobtrusively)"
+     },
+     {
+      "text": "Temperature (document route)"
+     },
+     {
+      "text": "Height, weight, and calculated BMI"
+     },
+     {
+      "text": "Pulse oximetry"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Skin, Hair, and Nails",
+  "ros": "Rashes, lumps, sores, itching, dryness, color change; hair or nail changes; new or changing moles.",
+  "note": null,
+  "groups": [
+   {
+    "name": "Core examination",
+    "items": [
+     {
+      "text": "Inspect skin: color, moisture, texture",
+      "lr": "(central cyanosis, +LR 7.4 for hypoxemia; palmar crease pallor +LR 7.9, palmar pallor +LR 5.6 for anemia)",
+      "tier": "B"
+     },
+     {
+      "text": "Palpate skin: temperature, turgor, mobility",
+      "lr": "(skin tenting, +LR 3.5 for hypovolemia; less reliable in the elderly)",
+      "tier": "C"
+     },
+     {
+      "text": "Inspect and palpate lesions: size, shape, color, asymmetry (ABCDEs), distribution"
+     },
+     {
+      "text": "Inspect and palpate hair and scalp: texture, distribution, moisture"
+     },
+     {
+      "text": "Inspect nails and interdigital spaces; assess for clubbing (Schamroth window)",
+      "lr": "(digital clubbing, +LR ~8; Pallares-Sanmartin 2010)",
+      "tier": "B"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Head, Eyes, Ears, Nose, and Throat",
+  "ros": "Head: headache, injury, dizziness. Eyes: vision, pain, redness, diplopia, floaters/flashes. Ears: hearing, tinnitus, vertigo, discharge. Nose: congestion, epistaxis, sinus pain. Throat/mouth: dental, gums, sore throat, hoarseness.",
+  "note": "For acute vestibular syndrome (continuous vertigo with nystagmus), the HINTS exam is more sensitive than early MRI for posterior-circulation stroke (\u2212LR 0.00; Kattah 2009). It is valid only in true acute vestibular syndrome, and a NORMAL head-impulse test is the worrisome result.",
+  "groups": [
+   {
+    "name": "Head",
+    "items": [
+     {
+      "text": "Inspect and palpate skull: symmetry, shape, deformity, trauma"
+     },
+     {
+      "text": "Inspect scalp and hair"
+     },
+     {
+      "text": "Inspect facial bones and features for symmetry"
+     },
+     {
+      "text": "Palpate the cervical lymph node chain (10 stations)"
+     }
+    ]
+   },
+   {
+    "name": "Eyes",
+    "items": [
+     {
+      "text": "Inspect position, conjunctiva, sclera, pupils",
+      "lr": "(conjunctival rim pallor, +LR 4.5 for anemia; sunken eyes +LR 3.4 but NS, CI 1.0-12.2, for hypovolemia)",
+      "tier": "C"
+     },
+     {
+      "text": "Inspect brows, eyelids, lacrimal system"
+     },
+     {
+      "text": "Visual acuity (Snellen)"
+     },
+     {
+      "text": "Visual fields by confrontation"
+     },
+     {
+      "text": "Six cardinal directions of gaze; convergence; accommodation"
+     },
+     {
+      "text": "Ophthalmoscopy: red reflex, iris, cornea"
+     },
+     {
+      "text": "Ophthalmoscopy: pupil and light reaction (PERRLA)",
+      "lr": "(consensual photophobia, +LR 28.8 for serious eye disease; wide CI)",
+      "tier": "A"
+     },
+     {
+      "text": "Ophthalmoscopy: retina, vessels, optic disc"
+     }
+    ]
+   },
+   {
+    "name": "Ears",
+    "items": [
+     {
+      "text": "Inspect and palpate the auricle, mastoid, TMJ"
+     },
+     {
+      "text": "Auditory acuity: whisper test at 2\u20133 ft"
+     },
+     {
+      "text": "Finger-rub test bilaterally"
+     },
+     {
+      "text": "Otoscopy bilaterally: canal and tympanic membrane"
+     }
+    ]
+   },
+   {
+    "name": "Ears \u2014 special tests",
+    "items": [
+     {
+      "text": "Rinne test"
+     },
+     {
+      "text": "Weber test"
+     }
+    ]
+   },
+   {
+    "name": "Nose",
+    "items": [
+     {
+      "text": "Inspect position, symmetry, skin"
+     },
+     {
+      "text": "Palpate nasal bones; test patency of each nostril"
+     },
+     {
+      "text": "Smell sensation (CN I)"
+     },
+     {
+      "text": "Palpate, percuss, and transilluminate sinuses"
+     },
+     {
+      "text": "Internal inspection with otoscope and speculum"
+     }
+    ]
+   },
+   {
+    "name": "Mouth and throat",
+    "items": [
+     {
+      "text": "Inspect lips, teeth, gums, tongue, hard/soft palate, pharynx, buccal mucosa"
+     },
+     {
+      "text": "Palpate the floor of the mouth (bimanual), tongue (including lateral borders), buccal mucosa, gums, and teeth"
+     },
+     {
+      "text": "Tongue protrusion (CN XII)"
+     },
+     {
+      "text": "Palate rise on \u201cAhh\u201d (CN IX/X); assess swallow"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Neck",
+  "ros": "Swollen glands, goiter, lumps, neck pain or stiffness.",
+  "note": null,
+  "groups": [
+   {
+    "name": "Core examination",
+    "items": [
+     {
+      "text": "Inspect neck, thyroid, tracheal position"
+     },
+     {
+      "text": "Observe swallowing for thyroid motion"
+     },
+     {
+      "text": "Palpate the thyroid (behind, during swallow): size, shape, consistency, nodules"
+     },
+     {
+      "text": "Palpate the cervical lymph node chain"
+     },
+     {
+      "text": "Assess for nuchal rigidity when meningeal irritation is suspected",
+      "lr": "(neck stiffness, +LR 6.6 for subarachnoid hemorrhage; Carpenter 2016)",
+      "tier": "B"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Thorax and Lungs",
+  "ros": "Cough, sputum, hemoptysis, wheeze, dyspnea, orthopnea, paroxysmal nocturnal dyspnea, pleuritic pain.",
+  "note": "Lung ultrasound outperforms auscultation and supine radiography: pneumonia +LR ~16 (Desai 2024); pneumothorax sens ~90% (lung-point sign ~100% specific); pleural effusion sens ~95%. B-lines are the bedside sign of cardiogenic edema (+LR ~9).",
+  "groups": [
+   {
+    "name": "Core examination",
+    "items": [
+     {
+      "text": "Inspect rate, rhythm, depth, effort, expiratory time"
+     },
+     {
+      "text": "Inspect chest shape, size, symmetry"
+     },
+     {
+      "text": "Inspect skin and chest landmarks"
+     },
+     {
+      "text": "Compress the chest wall (anterior, lateral, posterior)"
+     },
+     {
+      "text": "Assess chest expansion (anterior and posterior)"
+     },
+     {
+      "text": "Assess tactile fremitus (anterior and posterior)",
+      "lr": "(reduced fremitus is the best rule-out for effusion, \u2212LR 0.21; Wong 2009)",
+      "tier": "C"
+     },
+     {
+      "text": "Percuss \u2265 6 areas anterior and posterior, plus 2 lateral"
+     },
+     {
+      "text": "Identify diaphragmatic excursion posteriorly"
+     },
+     {
+      "text": "Auscultate \u2265 6 areas anterior and posterior, plus 2 lateral"
+     }
+    ]
+   },
+   {
+    "name": "Special tests",
+    "items": [
+     {
+      "text": "Bronchophony",
+      "lr": "(egophony/bronchophony, +LR ~4\u20136 for consolidation)",
+      "tier": "C"
+     },
+     {
+      "text": "Egophony",
+      "lr": "(\u201cE-to-A\u201d change, +LR ~4 for consolidation)",
+      "tier": "C"
+     },
+     {
+      "text": "Whispered pectoriloquy"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Cardiovascular",
+  "ros": "Chest pain, exertional dyspnea, palpitations, orthopnea/PND, edema, non-healing sores.",
+  "note": "Echocardiography is the diagnostic standard for valve disease (ACC/AHA Class I); the exam decides whom to image. Heart-failure bedside signs: S3 +LR 4.0 and JVD +LR 2.8 (Martindale 2016 pooled), B-lines +LR ~9; a low BNP (< 100) is the best rule-out (\u2212LR 0.11).",
+  "groups": [
+   {
+    "name": "Core examination",
+    "items": [
+     {
+      "text": "Note general appearance, blood pressure, heart rate"
+     },
+     {
+      "text": "Inspect neck: great vessels and carotid pulsation"
+     },
+     {
+      "text": "Evaluate and measure the JVP at 45\u00b0",
+      "lr": "(elevated JVP, +LR 4.1 for volume overload; Drum 2026)",
+      "tier": "C"
+     },
+     {
+      "text": "Auscultate the carotids for bruits"
+     },
+     {
+      "text": "Palpate the carotid pulse: amplitude and contour"
+     },
+     {
+      "text": "Inspect the anterior chest for the apical impulse (sitting, supine, LLD)"
+     },
+     {
+      "text": "Palpate for thrills at 4 areas (bony hand)"
+     },
+     {
+      "text": "Palpate for heaves and lifts at 4 areas (finger pads)"
+     },
+     {
+      "text": "Palpate and locate the PMI"
+     },
+     {
+      "text": "Auscultate 4 areas (bell and diaphragm), upright"
+     },
+     {
+      "text": "Auscultate leaning forward (aortic regurgitation)"
+     },
+     {
+      "text": "Auscultate in the left lateral decubitus (mitral, S3/S4)"
+     }
+    ]
+   },
+   {
+    "name": "Special tests (dynamic auscultation)",
+    "items": [
+     {
+      "text": "Squatting-to-standing maneuver (HOCM vs. others)"
+     },
+     {
+      "text": "Valsalva maneuver"
+     },
+     {
+      "text": "Isometric hand grip"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Peripheral Vascular",
+  "ros": "Claudication, leg cramps, varicosities, clot history, calf/leg swelling, color change with cold, cold extremities, non-healing wounds.",
+  "note": "The ABI (< 0.9) is the bedside confirmatory test for PAD; exam sets the pretest probability. For suspected DVT, pair a validated Wells score with D-dimer and two-point compression ultrasound rather than calf signs.",
+  "groups": [
+   {
+    "name": "Core examination",
+    "items": [
+     {
+      "text": "Inspect arms fingertips-to-shoulders; legs groin-to-feet (size, symmetry, color, veins, ulcers, nails)"
+     },
+     {
+      "text": "Palpate for skin temperature difference and screen for PAD",
+      "lr": "(cool skin, +LR 5.9; any bruit +LR 5.6; Khan 2006)",
+      "tier": "B"
+     },
+     {
+      "text": "Palpate pulses bilaterally: radial, brachial, femoral, popliteal, dorsalis pedis, posterior tibial"
+     },
+     {
+      "text": "Palpate epitrochlear and superficial inguinal nodes"
+     },
+     {
+      "text": "Assess pretibial and forefoot edema"
+     },
+     {
+      "text": "Palpate calves for cords"
+     }
+    ]
+   },
+   {
+    "name": "Special tests",
+    "items": [
+     {
+      "text": "Allen test (before radial access)"
+     },
+     {
+      "text": "PAD cluster (absent pedal pulse + femoral bruit; +LR 34.2 for PAD; Armstrong 2010)"
+     },
+     {
+      "text": "Absent dorsalis pedis / posterior tibial pulse",
+      "sub": true
+     },
+     {
+      "text": "Femoral artery bruit",
+      "sub": true
+     },
+     {
+      "text": "Homan sign",
+      "lr": "(unreliable for DVT; use Wells score + D-dimer + compression ultrasound)",
+      "tier": "D"
+     },
+     {
+      "text": "Buerger test"
+     },
+     {
+      "text": "Ankle-brachial index (ABI < 0.9)"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Abdomen",
+  "ros": "GI: dysphagia, heartburn, nausea, bowel changes, blood/melena, jaundice. GU: frequency, dysuria, hematuria, flank pain. Genital as appropriate.",
+  "note": "Bedside ultrasound reframes this exam: AAA sens ~98% (palpation misses most); appendicitis composite scores (AIR/Alvarado) plus graded-compression ultrasound spare CT; POCUS detects ~100 mL of ascites versus ~500 mL for shifting dullness. Lipase (>3x) has replaced amylase for pancreatitis (ACG 2024).",
+  "groups": [
+   {
+    "name": "Core examination (auscultate before percussion/palpation)",
+    "items": [
+     {
+      "text": "Position the patient (knees bent, feet flat) to relax the wall"
+     },
+     {
+      "text": "Inspect: skin, contour, symmetry, peristalsis, pulsations"
+     },
+     {
+      "text": "Auscultate bowel sounds"
+     },
+     {
+      "text": "Auscultate for bruits (aortic, renal, iliac, femoral)"
+     },
+     {
+      "text": "Auscultate for friction rubs (liver, spleen)"
+     },
+     {
+      "text": "Percuss all four quadrants and the gastric bubble"
+     },
+     {
+      "text": "Percuss the liver span at the MCL"
+     },
+     {
+      "text": "Percuss Traube space / Castell sign for spleen"
+     },
+     {
+      "text": "Light palpation of all quadrants"
+     },
+     {
+      "text": "Deep palpation of all quadrants"
+     },
+     {
+      "text": "Palpate and characterize the liver edge"
+     },
+     {
+      "text": "Palpate the gallbladder"
+     },
+     {
+      "text": "Palpate the spleen (supine and right lateral decubitus)"
+     },
+     {
+      "text": "Palpate the aorta",
+      "lr": "(palpable widened aorta, +LR 2.7 for AAA; do not cite pooled 12)",
+      "tier": "C"
+     },
+     {
+      "text": "Assess CVA tenderness"
+     }
+    ]
+   },
+   {
+    "name": "Peritoneal signs",
+    "items": [
+     {
+      "text": "Rigidity"
+     },
+     {
+      "text": "Guarding"
+     },
+     {
+      "text": "Rebound / Blumberg sign"
+     },
+     {
+      "text": "Cough test"
+     }
+    ]
+   },
+   {
+    "name": "Special tests",
+    "items": [
+     {
+      "text": "Murphy sign (cholecystitis)",
+      "lr": "(clinical +LR 2.8; sonographic Murphy +LR ~9.9)",
+      "tier": "C"
+     },
+     {
+      "text": "McBurney point tenderness (appendicitis)",
+      "lr": "(+LR 3.4; Wagner 1996)",
+      "tier": "C"
+     },
+     {
+      "text": "Rovsing sign (appendicitis)",
+      "lr": "(+LR 2.3)",
+      "tier": "C"
+     },
+     {
+      "text": "Psoas sign (appendicitis)",
+      "lr": "(+LR 2.0)",
+      "tier": "D"
+     },
+     {
+      "text": "Shifting dullness (ascites)"
+     },
+     {
+      "text": "Fluid wave (ascites)"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Musculoskeletal",
+  "ros": "Joint or muscle pain, stiffness, swelling, redness, weakness, limited motion; back or neck pain; systemic features (fever, rash, weight loss).",
+  "note": "Ottawa ankle/foot/knee and Canadian C-Spine rules safely exclude fracture and cut imaging (high-sensitivity screens). Clusters beat single tests: the Park cluster (painful arc + Hawkins + infraspinatus weakness), all three positive, gives +LR 10.6 for impingement; CTS-6 is the AAOS-preferred construct (2024) over Phalen or Tinel alone. Most single low-back red flags carry +LR ~1; a cancer history is the exception (+LR ~15).",
+  "groups": [
+   {
+    "name": "TMJ",
+    "items": [
+     {
+      "text": "Inspect for symmetry, swelling, redness"
+     },
+     {
+      "text": "Palpate joint and muscles of mastication"
+     },
+     {
+      "text": "AROM: opening/closing, lateral, protrusion/retraction"
+     }
+    ]
+   },
+   {
+    "name": "Shoulders",
+    "items": [
+     {
+      "text": "Inspect for swelling, deformity, atrophy, scars, positioning"
+     },
+     {
+      "text": "Palpate SC/AC joints, clavicle, subacromial bursa, bicipital groove, humerus, scapula"
+     },
+     {
+      "text": "AROM: abduction/adduction, flexion/extension, internal/external rotation"
+     }
+    ]
+   },
+   {
+    "name": "Elbows",
+    "items": [
+     {
+      "text": "Inspect for swelling or abnormal contours"
+     },
+     {
+      "text": "Palpate olecranon, epicondyles, groove, ulnar nerve, bursa"
+     },
+     {
+      "text": "AROM: flexion/extension, pronation/supination"
+     }
+    ]
+   },
+   {
+    "name": "Wrists / hands",
+    "items": [
+     {
+      "text": "Inspect hands in motion and at rest, palmar and dorsal surfaces"
+     },
+     {
+      "text": "Palpate distal radius/ulna, snuffbox, carpals, MCPs, phalanges"
+     },
+     {
+      "text": "AROM wrist: flexion/extension, ulnar/radial deviation"
+     },
+     {
+      "text": "AROM digits: flexion/extension, abduction/adduction, opposition"
+     }
+    ]
+   },
+   {
+    "name": "Spine",
+    "items": [
+     {
+      "text": "Inspect cervical/thoracic/lumbar curves and posture"
+     },
+     {
+      "text": "Palpate spinous processes, paravertebral muscles, SI joints"
+     },
+     {
+      "text": "AROM cervical: flexion/extension, rotation, lateral bending"
+     },
+     {
+      "text": "AROM thoracolumbar: flexion/extension, rotation, lateral bending"
+     }
+    ]
+   },
+   {
+    "name": "Hips",
+    "items": [
+     {
+      "text": "Inspect lumbar spine and hips for atrophy or bruising; assess leg-length symmetry"
+     },
+     {
+      "text": "Palpate ASIS/iliac crest/greater trochanter/PSIS, SI joints, trochanteric bursa, inguinal nodes"
+     },
+     {
+      "text": "AROM: flexion/extension, abduction/adduction, internal/external rotation"
+     }
+    ]
+   },
+   {
+    "name": "Knees",
+    "items": [
+     {
+      "text": "Inspect alignment, contours, atrophy, swelling, bruising"
+     },
+     {
+      "text": "Palpate 3 compartments (medial, lateral, patellofemoral) and bursae"
+     },
+     {
+      "text": "AROM: flexion/extension"
+     }
+    ]
+   },
+   {
+    "name": "Feet / ankles",
+    "items": [
+     {
+      "text": "Inspect all surfaces (weight-bearing and non-weight-bearing): arches, deformity, swelling, calluses"
+     },
+     {
+      "text": "Palpate joint lines, malleoli, plantar fascia, MTPs, metatarsal heads"
+     },
+     {
+      "text": "AROM ankle (plantar/dorsiflexion, inversion/eversion) and toes"
+     }
+    ]
+   },
+   {
+    "name": "Special tests: shoulder",
+    "items": [
+     {
+      "text": "Park impingement cluster (all 3 positive, +LR 10.56)"
+     },
+     {
+      "text": "Hawkins-Kennedy",
+      "sub": true
+     },
+     {
+      "text": "Infraspinatus (resisted external rotation) test",
+      "sub": true
+     },
+     {
+      "text": "Painful arc",
+      "sub": true
+     },
+     {
+      "text": "Neer impingement sign",
+      "lr": "(+LR ~1.9)",
+      "tier": "D"
+     },
+     {
+      "text": "Drop-arm test (cuff tear)",
+      "lr": "(+LR 3.3)",
+      "tier": "C"
+     },
+     {
+      "text": "Empty-can / Jobe (supraspinatus)",
+      "lr": "(+LR ~1.8; low yield)",
+      "tier": "D"
+     },
+     {
+      "text": "Internal rotation lag / lift-off (subscapularis)"
+     },
+     {
+      "text": "Cross-body adduction / scarf (AC joint)"
+     },
+     {
+      "text": "Yergason test (biceps/labrum)",
+      "lr": "(+LR ~2.0)",
+      "tier": "D"
+     },
+     {
+      "text": "O'Brien active compression (SLAP)"
+     },
+     {
+      "text": "Apprehension + relocation (instability)"
+     }
+    ]
+   },
+   {
+    "name": "Special tests: elbow and wrist",
+    "items": [
+     {
+      "text": "Elbow flexion test (cubital tunnel)"
+     },
+     {
+      "text": "Finkelstein test (de Quervain)"
+     },
+     {
+      "text": "Phalen test (carpal tunnel)",
+      "lr": "(pooled +LR ~2.7; Valdes 2013)",
+      "tier": "C"
+     },
+     {
+      "text": "Tinel sign at the wrist (carpal tunnel)",
+      "lr": "(pooled +LR ~3.0)",
+      "tier": "C"
+     },
+     {
+      "text": "Median / ulnar / radial sensory testing of the hand"
+     }
+    ]
+   },
+   {
+    "name": "Special tests: spine",
+    "items": [
+     {
+      "text": "Wainner cervical radiculopathy cluster (4/4 +LR 30.3, 3/4 +LR 6.1)"
+     },
+     {
+      "text": "Spurling A",
+      "sub": true
+     },
+     {
+      "text": "Cervical distraction",
+      "sub": true
+     },
+     {
+      "text": "Upper limb tension test A (median)",
+      "sub": true
+     },
+     {
+      "text": "Cervical rotation <60 deg to the involved side",
+      "sub": true
+     },
+     {
+      "text": "Straight-leg raise (lumbar radiculopathy)",
+      "lr": "(+LR ~1.3; a rule-out test, van der Windt 2010)",
+      "tier": "D"
+     },
+     {
+      "text": "Crossed straight-leg raise (disc herniation)",
+      "lr": "(+LR 3.4)",
+      "tier": "C"
+     }
+    ]
+   },
+   {
+    "name": "Special tests: hip",
+    "items": [
+     {
+      "text": "Sutlive hip-OA cluster (4/5 +LR 24.3; derivation cohort, not yet externally validated)"
+     },
+     {
+      "text": "Hip scour test positive",
+      "sub": true
+     },
+     {
+      "text": "Passive internal rotation <=25 deg",
+      "sub": true
+     },
+     {
+      "text": "Pain with squatting",
+      "sub": true
+     },
+     {
+      "text": "Lateral hip pain on active flexion",
+      "sub": true
+     },
+     {
+      "text": "Painful active hip extension",
+      "sub": true
+     },
+     {
+      "text": "FABER (Patrick) test"
+     },
+     {
+      "text": "FADIR test (intra-articular / labral)",
+      "lr": "(a rule-out test; +LR ~1-2)",
+      "tier": "D"
+     },
+     {
+      "text": "Log roll"
+     }
+    ]
+   },
+   {
+    "name": "Special tests: knee",
+    "items": [
+     {
+      "text": "Effusion: bulge, ballottement, sweep"
+     },
+     {
+      "text": "McMurray test (meniscus)",
+      "lr": "(+LR ~2.7 composite; ~1.3 in isolation)",
+      "tier": "C"
+     },
+     {
+      "text": "Valgus stress at 30 deg (MCL)",
+      "lr": "(+LR 6.4 with laxity + pain + history; Kastelein 2008)",
+      "tier": "B"
+     },
+     {
+      "text": "Varus stress (LCL)"
+     },
+     {
+      "text": "Lachman test (ACL)",
+      "lr": "(+LR 8.8-42; strongest ACL test)",
+      "tier": "A"
+     },
+     {
+      "text": "Anterior drawer (ACL)",
+      "lr": "(+LR ~3.8)",
+      "tier": "C"
+     },
+     {
+      "text": "Pivot shift (ACL)",
+      "lr": "(+LR 16.0 [7.34-34.87]; Huang 2016)",
+      "tier": "A"
+     },
+     {
+      "text": "Lever / Lelli sign (ACL)",
+      "lr": "(+LR 1.4 prospective, Mulligan 2017; MA 3.15-6.6; adjunct to Lachman)",
+      "tier": "D"
+     },
+     {
+      "text": "Posterior drawer (PCL)",
+      "lr": "(+LR ~21; a single small high-bias study reports ~98)",
+      "tier": "A"
+     }
+    ]
+   },
+   {
+    "name": "Special tests: ankle and foot",
+    "items": [
+     {
+      "text": "Thompson / calf-squeeze (Achilles rupture)",
+      "lr": "(+LR 13.7; complete acute ruptures; Reiman 2014)",
+      "tier": "A"
+     },
+     {
+      "text": "Matles knee-flexion test (Achilles rupture)",
+      "lr": "(+LR 6.29 [2.33-19.96]; Reiman 2014 SR of Maffulli 1998, single high-bias cohort)",
+      "tier": "B"
+     },
+     {
+      "text": "Tendon-gap palpation (Achilles rupture)",
+      "lr": "(+LR 6.64 [2.32-19.91]; Reiman 2014 SR of Maffulli 1998, single high-bias cohort)",
+      "tier": "B"
+     },
+     {
+      "text": "Anterior drawer of the ankle (ATFL)"
+     },
+     {
+      "text": "Talar tilt test"
+     },
+     {
+      "text": "Squeeze test (syndesmosis)"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Neurological",
+  "ros": "Mood/attention/speech change; orientation, memory, judgment; headache, dizziness, vertigo, syncope; weakness, numbness, tingling, tremor, seizures.",
+  "note": "For stroke, BE-FAST catches posterior strokes that FAST misses; ROSIER is the best-validated ED tool. The Ottawa SAH rule (sens ~100%) safely excludes subarachnoid hemorrhage. NICE recommends against ABCD2 for TIA.",
+  "groups": [
+   {
+    "name": "Mental status and cranial nerves",
+    "items": [
+     {
+      "text": "Mental status: alertness, appropriateness, orientation"
+     },
+     {
+      "text": "CN I \u2014 smell"
+     },
+     {
+      "text": "CN II \u2014 visual acuity and fields"
+     },
+     {
+      "text": "CN III/IV/VI \u2014 EOMs, light reflex, accommodation"
+     },
+     {
+      "text": "CN V \u2014 motor (clench, jaw excursion); sensory (V1/V2/V3)"
+     },
+     {
+      "text": "CN VII \u2014 facial expression (brow, eyes, cheeks, smile)"
+     },
+     {
+      "text": "CN VIII \u2014 hearing (whisper test)"
+     },
+     {
+      "text": "CN IX/X \u2014 palate rise, swallow, phonation"
+     },
+     {
+      "text": "CN XI \u2014 shoulder shrug, head turn against resistance"
+     },
+     {
+      "text": "CN XII \u2014 tongue protrusion without deviation"
+     }
+    ]
+   },
+   {
+    "name": "Motor",
+    "items": [
+     {
+      "text": "Inspect bulk, tone, and involuntary movements"
+     },
+     {
+      "text": "UE strength: elbow flexion/extension"
+     },
+     {
+      "text": "UE strength: wrist flexion/extension"
+     },
+     {
+      "text": "UE strength: fingers abduction/adduction, thumb opposition, grip"
+     },
+     {
+      "text": "LE strength: hip flexion/extension/abduction/adduction"
+     },
+     {
+      "text": "LE strength: knee flexion/extension"
+     },
+     {
+      "text": "LE strength: ankle dorsiflexion/plantarflexion"
+     }
+    ]
+   },
+   {
+    "name": "Coordination and gait",
+    "items": [
+     {
+      "text": "Rapid alternating movements (bilateral)"
+     },
+     {
+      "text": "Point-to-point (finger-to-nose or heel-to-shin)"
+     },
+     {
+      "text": "Romberg test"
+     },
+     {
+      "text": "Pronator drift"
+     },
+     {
+      "text": "Observe gait"
+     },
+     {
+      "text": "Heel-to-toe (tandem) walk"
+     },
+     {
+      "text": "Walk on toes and heels"
+     },
+     {
+      "text": "Shallow knee bend"
+     }
+    ]
+   },
+   {
+    "name": "Sensory",
+    "items": [
+     {
+      "text": "Pain (sharp/dull)"
+     },
+     {
+      "text": "Light touch (cotton wisp, compare symmetry)"
+     },
+     {
+      "text": "Vibratory sense (tuning fork)"
+     },
+     {
+      "text": "10-g monofilament at plantar sites (loss of protective sensation)",
+      "lr": "(ADA/IDF/WHO standard screen for LOPS; sens ~57-93%, spec ~75-100% by technique; Feng 2009 J Vasc Surg SR)",
+      "tier": "C"
+     },
+     {
+      "text": "Proprioception (big toe)"
+     },
+     {
+      "text": "Stereognosis"
+     },
+     {
+      "text": "Graphesthesia"
+     }
+    ]
+   },
+   {
+    "name": "Reflexes",
+    "items": [
+     {
+      "text": "DTR biceps or brachioradialis"
+     },
+     {
+      "text": "DTR triceps"
+     },
+     {
+      "text": "DTR patellar"
+     },
+     {
+      "text": "DTR ankle"
+     }
+    ]
+   },
+   {
+    "name": "Special tests",
+    "items": [
+     {
+      "text": "Babinski (plantar response)"
+     },
+     {
+      "text": "Ankle clonus"
+     },
+     {
+      "text": "Asterixis"
+     },
+     {
+      "text": "Kernig and Brudzinski signs",
+      "lr": "(poor, non-reproducible sensitivity; do not use to exclude meningitis - an LP does that)",
+      "tier": "D"
+     },
+     {
+      "text": "HINTS for acute vestibular syndrome (expert-performed +LR 25, -LR 0.00; competency-gated)"
+     },
+     {
+      "text": "Head impulse test",
+      "sub": true
+     },
+     {
+      "text": "Nystagmus (direction-changing)",
+      "sub": true
+     },
+     {
+      "text": "Test of skew (alternate cover)",
+      "sub": true
+     },
+     {
+      "text": "Dix-Hallpike for positional vertigo (pc-BPPV); if positive, treat with Epley",
+      "lr": "(diagnostic maneuver for pc-BPPV; Epley Level A, NNT 3; Khoujah 2023, Imai 2023)"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Psychiatric and Cognition",
+  "ros": "Nervousness, tension, mood/depression, memory change, suicidal or homicidal ideation, plans, or attempts.",
+  "note": "Structured screens outperform the unstructured interview. Asking directly about suicide does not plant the idea. The MoCA is more sensitive than the MMSE for mild cognitive impairment; the CAM is the bedside standard for delirium.",
+  "groups": [
+   {
+    "name": "Mental status examination",
+    "items": [
+     {
+      "text": "Appearance, behavior, psychomotor activity"
+     },
+     {
+      "text": "Mood (patient's own words) and affect"
+     },
+     {
+      "text": "Speech: rate, rhythm, volume, fluency"
+     },
+     {
+      "text": "Thought process: linear, goal-directed"
+     },
+     {
+      "text": "Thought content: SI/HI, delusions, obsessions"
+     },
+     {
+      "text": "Perceptions: hallucinations"
+     },
+     {
+      "text": "Cognition: orientation, attention, memory"
+     },
+     {
+      "text": "Insight and judgment"
+     }
+    ]
+   },
+   {
+    "name": "Structured instruments",
+    "items": [
+     {
+      "text": "PHQ-9 (depression), GAD-7 (anxiety), AUDIT-C or CAGE (alcohol)"
+     },
+     {
+      "text": "Columbia (C-SSRS) when suicide risk is a concern"
+     },
+     {
+      "text": "MoCA (more sensitive than MMSE for mild impairment); CAM for delirium"
+     }
+    ]
+   }
+  ]
+ }
+];
+const OSCE = {"spine":[{"section":"Introduction, identification & hand hygiene","phase":"SUBJECTIVE","rows":[{"text":"Introduces self by name and states role to the patient (count: 2 = both, 1 = one, 0 = neither)","max":2,"base":true,"verify":"sp"},{"text":"Confirms patient identity: full name and a second identifier (count: 2 = both, 1 = one, 0 = neither)","max":2,"base":true,"verify":"sp"},{"text":"Asks the patient's pronouns and uses them throughout (count: 2 = both, 1 = one, 0 = neither)","max":2,"base":true,"verify":"sp"},{"text":"Washes or sanitizes hands before patient contact","max":1,"base":true,"verify":"sp"}]},{"section":"HPI: chief complaint & symptom characterization (OLDCARTS)","phase":"SUBJECTIVE","rows":[{"text":"Elicits chief complaint in the patient's own words","max":1,"base":true},{"text":"Opens with an open-ended question before narrowing to closed questions","max":1,"base":true,"verify":"sp"},{"text":"Elicits the patient's ideas, concerns, and expectations (ICE)","max":1,"base":true,"verify":"sp"},{"text":"Responds to emotion with empathy (PEARLS: partnership, empathy, apology, respect, support)","max":1,"base":true,"verify":"sp"},{"text":"Onset","max":1,"base":true},{"text":"Location","max":1,"base":true},{"text":"Duration","max":1,"base":true},{"text":"Character / quality","max":1,"base":true},{"text":"Aggravating factors","max":1,"base":true},{"text":"Alleviating factors (incl. self-treatment and response)","max":1,"base":true},{"text":"Radiation","max":1,"base":true},{"text":"Timing (constant vs. intermittent; frequency)","max":1,"base":true},{"text":"Severity (0-10 or functional impact)","max":1,"base":true},{"text":"Associated symptoms","max":1,"base":true},{"text":"Recent travel or sick contacts","max":1,"base":true}]},{"section":"Summarize & transition (after HPI)","phase":"SUBJECTIVE","rows":[{"text":"Summarizes the HPI back to the patient and checks accuracy (count: 2 = both, 1 = one, 0 = neither)","max":2,"base":true,"verify":"sp"},{"text":"Transition statement from HPI into the review of systems","max":1,"base":true,"verify":"sp"}]},{"section":"Review of systems","phase":"SUBJECTIVE","rows":[{"text":"Constitutional (fever/chills, weight change, fatigue, night sweats, appetite) - criterion: asks >=3 of the 5","max":1,"base":true}],"ros_slot":true},{"section":"Summarize & transition (after ROS)","phase":"SUBJECTIVE","rows":[{"text":"Transition statement from ROS into the histories","max":1,"base":true,"verify":"sp"}]},{"section":"Past histories, medications, allergies & immunizations","phase":"SUBJECTIVE","rows":[{"text":"PMH - each condition with diagnosis and year if known (or none)","max":1,"base":true},{"text":"PSH - each surgery with year and complications (or none)","max":1,"base":true},{"text":"FH - first-degree relatives: age, alive/deceased (cause), chronic conditions","max":1,"base":true},{"text":"Social Hx (FED TACOS) - Food / diet","max":1,"base":true},{"text":"Social Hx - Exercise / physical activity","max":1,"base":true},{"text":"Social Hx - Drugs (recreational / illicit)","max":1,"base":true},{"text":"Social Hx - Tobacco / nicotine","max":1,"base":true},{"text":"Social Hx - Alcohol","max":1,"base":true},{"text":"Social Hx - Caffeine","max":1,"base":true},{"text":"Social Hx - Occupation","max":1,"base":true},{"text":"Social Hx - Stress, sleep, SES, sex, support - criterion: asks >=3 of the 5","max":1,"base":true},{"text":"Medications - name, dose, route, frequency incl. OTC/supplements (or none)","max":1,"base":true},{"text":"Allergies - allergen and reaction (or NKDA)","max":1,"base":true},{"text":"Immunizations and age-appropriate screenings - UTD or not","max":1,"base":true}]},{"section":"Summarize & transition (after histories)","phase":"SUBJECTIVE","rows":[{"text":"Summarizes the histories / medications / allergies","max":1,"base":true,"verify":"sp"},{"text":"Transition statement from histories into the physical exam","max":1,"base":true,"verify":"sp"}]},{"section":"Physical exam: general survey","phase":"OBJECTIVE","rows":[{"text":"General survey - reports all components: LOC/orientation, distress, posture/habitus, grooming, stated age (criterion: all 5)","max":1,"base":true},{"text":"General survey - reports vital signs","max":1,"base":true}]},{"section":"Physical exam: vital signs","phase":"OBJECTIVE","rows":[{"text":"Blood pressure (correct technique) and report","max":1,"base":true},{"text":"Pulse: rate, rhythm, amplitude, and report","max":1,"base":true},{"text":"Respiratory rate and report","max":1,"base":true},{"text":"Temperature (document route) and report","max":1,"base":true},{"text":"Height","max":1,"base":true},{"text":"Weight and calculated BMI","max":1,"base":true}],"vitals_slot":true,"alt":[{"text":"Acknowledges the recorded vital signs and verbalizes each (BP, HR, RR, T, and SpO2/BMI as available)","max":1,"base":true},{"text":"Identifies abnormal vital signs and states their clinical significance (or states all within normal limits)","max":1,"base":true}]},{"section":"Skin, hair & nails","phase":"OBJECTIVE","rows":[{"text":"Inspect overall skin appearance: color, moisture, texture","max":1},{"text":"Inspect/palpate temperature, turgor, mobility","max":1},{"text":"Inspect/palpate lesions (size, shape, color, asymmetry, distribution)","max":1},{"text":"Inspect/palpate hair and scalp","max":1},{"text":"Inspect/palpate finger and toe nails","max":1}]},{"section":"HEENT: head","phase":"OBJECTIVE","rows":[{"text":"Inspect/palpate skull for symmetry, shape, deformity, trauma","max":1},{"text":"Inspect/palpate scalp and hair","max":1},{"text":"Inspect facial bones and features for symmetry and position","max":1}]},{"section":"HEENT: eyes","phase":"OBJECTIVE","rows":[{"text":"Test visual acuity (Snellen)","max":1},{"text":"Test visual fields by confrontation","max":1},{"text":"Inspect position/shape/symmetry of eyes, conjunctiva, sclera, pupil","max":1},{"text":"Inspect/palpate brows, eyelids, lacrimal system","max":1},{"text":"Check extra-ocular movements; convergence; accommodation","max":1},{"text":"Ophthalmoscope: red reflex, iris, cornea","max":1},{"text":"Ophthalmoscope: pupil and light reaction (PERRLA)","max":1},{"text":"Ophthalmoscope: retina, vessels, optic disc","max":1}]},{"section":"HEENT: ears","phase":"OBJECTIVE","rows":[{"text":"Inspect auricle shape, size, symmetry, placement","max":1},{"text":"Palpate auricle, mastoid, TMJ, parotid","max":1},{"text":"Auditory acuity (whisper test 2-3 ft, bilateral)","max":1},{"text":"Otoscope: external canal and TM (bilateral)","max":1},{"text":"Weber test","max":1},{"text":"Rinne test","max":1}]},{"section":"HEENT: nose","phase":"OBJECTIVE","rows":[{"text":"Inspect position, symmetry, skin changes","max":1},{"text":"Palpate nasal bones","max":1},{"text":"Test nasal patency of each nostril","max":1},{"text":"Test smell sensation (CN I)","max":1},{"text":"Palpate sinuses","max":1},{"text":"Percuss sinuses","max":1},{"text":"Transilluminate sinuses","max":1},{"text":"Otoscope: mucosa, septum, turbinate","max":1}]},{"section":"HEENT: throat, mouth & neck","phase":"OBJECTIVE","rows":[{"text":"Inspect lips and mouth (symmetry, color, lesions, moisture)","max":1},{"text":"Inspect teeth, gums, tongue, palate, pharynx, buccal mucosa","max":1},{"text":"Inspect floor of mouth","max":1},{"text":"Palpate floor of mouth (bimanual), tongue (incl. lateral borders), buccal mucosa, gums, teeth","max":1},{"text":"Tongue protrusion (CN XII)","max":1},{"text":"Say 'Ah': observe palate rise (CN IX/X)","max":1},{"text":"Assess swallowing","max":1},{"text":"Inspect neck for symmetry, contour, masses","max":1},{"text":"Palpate cervical lymph nodes","max":1},{"text":"Palpate thyroid","max":1},{"text":"Palpate neck midline: vessels, cartilage, trachea","max":1}]},{"section":"Physical exam: thorax & lungs","phase":"OBJECTIVE","rows":[{"text":"Inspect rate, rhythm, depth, effort, expiratory time","max":1},{"text":"Inspect shape, size, symmetry of chest","max":1},{"text":"Inspect skin and chest landmarks","max":1},{"text":"Compress anterior, lateral, posterior chest wall","max":1},{"text":"Assess chest expansion (anterior and posterior)","max":1},{"text":"Assess tactile fremitus (anterior and posterior)","max":1},{"text":"Percuss >=6 areas anterior/posterior incl. 2 lateral (criterion: >=6 areas)","max":1},{"text":"Identify diaphragmatic excursion posteriorly","max":1},{"text":"Auscultate lungs: >=6 areas anterior/posterior incl. 2 lateral, bilaterally (criterion: >=6 areas)","max":1,"base":true},{"text":"Special: bronchophony","max":1},{"text":"Special: egophony","max":1},{"text":"Special: whispered pectoriloquy","max":1}]},{"section":"Physical exam: cardiovascular","phase":"OBJECTIVE","rows":[{"text":"Inspect precordium for the apical impulse","max":1},{"text":"Assess JVP at 45 degrees","max":1},{"text":"Palpate carotids one at a time","max":1},{"text":"Auscultate carotids for bruits","max":1},{"text":"Palpate precordium for PMI, heaves, thrills","max":1},{"text":"Auscultate heart: all valve areas, bell and diaphragm (criterion: all valve areas)","max":1,"base":true},{"text":"Auscultate in left lateral decubitus (mitral, S3/S4)","max":1},{"text":"Auscultate leaning forward (aortic regurgitation)","max":1},{"text":"Palpate peripheral pulses (radial, femoral, popliteal, DP, PT) (criterion: all 5 sites)","max":1},{"text":"Assess for peripheral edema","max":1}]},{"section":"Physical exam: peripheral vascular","phase":"OBJECTIVE","rows":[{"text":"Inspect extremities for color, hair, ulcers, varicosities","max":1},{"text":"Assess extremity temperature","max":1},{"text":"Assess capillary refill","max":1},{"text":"Palpate peripheral pulses bilaterally","max":1},{"text":"Assess for edema","max":1},{"text":"Special: Allen test / ankle-brachial index","max":1},{"text":"Special: PAD cluster (absent pedal pulse + femoral bruit, +LR 34.2)","max":1},{"text":"Absent dorsalis pedis / posterior tibial pulse","sub":true},{"text":"Femoral artery bruit","sub":true}]},{"section":"Physical exam: abdomen / GI","phase":"OBJECTIVE","rows":[{"text":"Inspect contour, scars, distension, pulsations","max":1},{"text":"Auscultate bowel sounds in 4 quadrants","max":1},{"text":"Auscultate for aortic / renal bruits","max":1},{"text":"Percuss all 4 quadrants","max":1},{"text":"Percuss liver span","max":1},{"text":"Percuss spleen","max":1},{"text":"Light palpation of all 4 quadrants","max":1},{"text":"Deep palpation of all 4 quadrants","max":1},{"text":"Palpate liver edge","max":1},{"text":"Palpate spleen","max":1},{"text":"Assess CVA tenderness","max":1},{"text":"Special: rebound tenderness","max":1},{"text":"Special: Rovsing sign","max":1},{"text":"Special: psoas sign","max":1},{"text":"Special: Murphy sign","max":1}]},{"section":"Musculoskeletal: TMJ","phase":"OBJECTIVE","rows":[{"text":"Inspect for symmetry, swelling, redness","max":1},{"text":"Palpate joint and muscles","max":1},{"text":"ROM: opening/closing, lateral, protrusion/retraction","max":1}]},{"section":"Musculoskeletal: shoulders","phase":"OBJECTIVE","rows":[{"text":"Inspect for swelling, deformity, atrophy, scars, positioning","max":1},{"text":"Inspect/palpate SC/AC joints, clavicle, bursa, bicipital groove, humerus, scapula","max":1},{"text":"ROM: abd/add, flex/ext, internal/external rotation","max":1},{"text":"Special: Park impingement cluster (all 3 positive, +LR 10.56)","max":1},{"text":"Hawkins-Kennedy","sub":true},{"text":"Infraspinatus (resisted external rotation) test","sub":true},{"text":"Painful arc","sub":true},{"text":"Special (impingement): Neer","max":1},{"text":"Special (rotator cuff): drop-arm / empty-can / ER or IR lag","max":1},{"text":"Special (AC joint): cross-body / scarf","max":1},{"text":"Special (biceps): Yergason","max":1},{"text":"Special (instability): apprehension-relocation / O'Brien","max":1}]},{"section":"Musculoskeletal: elbows","phase":"OBJECTIVE","rows":[{"text":"Inspect for swelling or abnormal contours","max":1},{"text":"Palpate olecranon, epicondyles, grooves, bursa, ulnar nerve","max":1},{"text":"ROM: flex/ext, supination/pronation","max":1},{"text":"Special: elbow flexion test (cubital tunnel)","max":1}]},{"section":"Musculoskeletal: wrists / hands","phase":"OBJECTIVE","rows":[{"text":"Inspect hands in motion and rest, palmar/dorsal surfaces","max":1},{"text":"Palpate radius/ulna, snuff box, carpals, metacarpals, phalanges","max":1},{"text":"ROM wrist: flex/ext, ulnar/radial deviation","max":1},{"text":"ROM digits: flex/ext, abd/add, opposition","max":1},{"text":"Special: Finkelstein (de Quervain)","max":1},{"text":"Special: Phalen (carpal tunnel)","max":1},{"text":"Special: Tinel (carpal tunnel)","max":1}]},{"section":"Musculoskeletal: spine","phase":"OBJECTIVE","rows":[{"text":"Inspect cervical/thoracic/lumbar curves, posture","max":1},{"text":"Palpate spinous processes, iliac crests, PSIS incl. C7/L4","max":1},{"text":"Palpate paravertebral muscles","max":1},{"text":"Palpate sciatic nerve","max":1},{"text":"ROM cervical: flex/ext, rotation, lateral bending","max":1},{"text":"ROM thoracolumbar: flex/ext, rotation, lateral bending","max":1},{"text":"Special: Wainner cervical radiculopathy cluster (4/4 +LR 30.3, 3/4 +LR 6.1)","max":1},{"text":"Spurling A","sub":true},{"text":"Cervical distraction","sub":true},{"text":"Upper limb tension test A (median)","sub":true},{"text":"Cervical rotation <60 deg to the involved side","sub":true},{"text":"Special: straight-leg raise","max":1},{"text":"Special: crossed straight-leg raise","max":1}]},{"section":"Musculoskeletal: hips","phase":"OBJECTIVE","rows":[{"text":"Inspect lumbar spine and hips for atrophy/bruising","max":1},{"text":"Assess leg-length symmetry","max":1},{"text":"Palpate anterior structures: iliac crest, ASIS, greater trochanter","max":1},{"text":"Palpate posterior structures: PSIS and SI joints","max":1},{"text":"Palpate inguinal ligament and lymph nodes","max":1},{"text":"Palpate trochanteric bursa","max":1},{"text":"ROM: flex/ext, abd/add, internal/external rotation","max":1},{"text":"Special: Sutlive hip-OA cluster (4/5 +LR 24.3; derivation cohort, not yet externally validated)","max":1},{"text":"Hip scour test positive","sub":true},{"text":"Passive internal rotation <=25 deg","sub":true},{"text":"Pain with squatting","sub":true},{"text":"Lateral hip pain on active flexion","sub":true},{"text":"Painful active hip extension","sub":true},{"text":"Special: FABER","max":1},{"text":"Special: FADIR","max":1},{"text":"Special: log roll","max":1}]},{"section":"Musculoskeletal: knees","phase":"OBJECTIVE","rows":[{"text":"Inspect alignment, contours, atrophy, swelling, bruising","max":1},{"text":"Palpate medial compartment (condyle, plateau, MCL, meniscus)","max":1},{"text":"Palpate lateral compartment (condyle, plateau, LCL, meniscus)","max":1},{"text":"Palpate patellofemoral (patella, tendon, tibial tuberosity)","max":1},{"text":"Palpate suprapatellar, pre-patellar, pes anserine, popliteal bursa","max":1},{"text":"ROM: flex/ext","max":1},{"text":"Special: effusion (bulge/ballottement/sweep)","max":1},{"text":"Special: McMurray (meniscus)","max":1},{"text":"Special: MCL valgus stress","max":1},{"text":"Special: LCL varus stress","max":1},{"text":"Special: Lachman (ACL)","max":1},{"text":"Special: anterior drawer (ACL)","max":1},{"text":"Special: posterior drawer (PCL)","max":1}]},{"section":"Musculoskeletal: feet / ankles","phase":"OBJECTIVE","rows":[{"text":"Inspect all surfaces for deformity, swelling, calluses","max":1},{"text":"Inspect weight-bearing & non-weight-bearing; arches, inversion/eversion","max":1},{"text":"Palpate anterior ankle joint, medial and lateral malleoli","max":1},{"text":"Palpate heel and plantar fascia","max":1},{"text":"Palpate MTP joints incl. metatarsal heads","max":1},{"text":"ROM ankle (plantar/dorsiflexion, inversion/eversion) and toes","max":1},{"text":"Special: Thompson / calf-squeeze (Achilles)","max":1},{"text":"Special: Matles knee-flexion test (Achilles)","max":1},{"text":"Special: tendon-gap palpation (Achilles)","max":1},{"text":"Special: anterior drawer (ankle)","max":1},{"text":"Special: talar tilt","max":1},{"text":"Special: squeeze test (syndesmosis)","max":1}]},{"section":"Neurologic: mental status & cranial nerves","phase":"OBJECTIVE","rows":[{"text":"Mental status: alertness, appropriateness, orientation","max":1},{"text":"CN I - smell","max":1},{"text":"CN II - visual acuity and fields","max":1},{"text":"CN III - EOM","max":1},{"text":"CN III - pupillary light reflex","max":1},{"text":"CN III - accommodation","max":1},{"text":"CN IV - EOM","max":1},{"text":"CN V - motor (clench / jaw excursion)","max":1},{"text":"CN V - sensory (V1/V2/V3, sharp-dull, light touch)","max":1},{"text":"CN VI - EOM","max":1},{"text":"CN VII - brow, eye closure, cheeks, smile","max":1},{"text":"CN VIII - auditory acuity (whisper test)","max":1},{"text":"CN IX/X - speech","max":1},{"text":"CN IX/X - swallow","max":1},{"text":"CN IX/X - palate rise with 'Ah'","max":1},{"text":"CN XI - shoulder shrug against resistance","max":1},{"text":"CN XI - head turn against resistance","max":1},{"text":"CN XII - tongue protrudes without deviation","max":1}]},{"section":"Neurologic: motor","phase":"OBJECTIVE","rows":[{"text":"Inspect bulk, tone, involuntary movements","max":1},{"text":"UE strength: elbow flexion/extension","max":1},{"text":"UE strength: wrist flexion/extension","max":1},{"text":"UE strength: fingers abd/add, thumb opposition, grip","max":1},{"text":"LE strength: hip flexion/extension/abd/add","max":1},{"text":"LE strength: knee flexion/extension","max":1},{"text":"LE strength: ankle dorsiflexion/plantarflexion","max":1}]},{"section":"Neurologic: coordination / cerebellar","phase":"OBJECTIVE","rows":[{"text":"Rapid alternating movements (bilateral)","max":1},{"text":"Point-to-point (finger-to-nose or heel-to-shin)","max":1},{"text":"Romberg test","max":1},{"text":"Pronator drift","max":1},{"text":"Observe gait","max":1},{"text":"Heel-to-toe walk","max":1},{"text":"Walk on toes and heels","max":1},{"text":"Shallow knee bend","max":1},{"text":"Special: HINTS for acute vestibular syndrome (expert / competency-gated)","max":1},{"text":"Head impulse test","sub":true},{"text":"Nystagmus (direction-changing)","sub":true},{"text":"Test of skew (alternate cover)","sub":true},{"text":"Special: Dix-Hallpike for positional vertigo (pc-BPPV); if positive, treat with Epley maneuver","max":1}]},{"section":"Neurologic: sensory","phase":"OBJECTIVE","rows":[{"text":"Pain (sharp/dull)","max":1},{"text":"Light touch (cotton wisp, compare symmetry)","max":1},{"text":"Vibratory sense (tuning fork)","max":1},{"text":"10-g monofilament at plantar sites (loss of protective sensation)","max":1},{"text":"Proprioception (big toe)","max":1},{"text":"Stereognosis","max":1},{"text":"Graphesthesia","max":1}]},{"section":"Neurologic: reflexes & special tests","phase":"OBJECTIVE","rows":[{"text":"DTR biceps or brachioradialis","max":1},{"text":"DTR triceps","max":1},{"text":"DTR patellar","max":1},{"text":"DTR ankle","max":1},{"text":"Special: Babinski (plantar response)","max":1},{"text":"Special: ankle clonus","max":1},{"text":"Special: asterixis","max":1},{"text":"Special: Kernig and Brudzinski","max":1}]},{"section":"Assessment & plan","phase":"ASSESSMENT & PLAN","rows":[{"text":"States the primary (most likely) diagnosis","max":1,"base":true},{"text":"Differential 1 - names it and gives >=3 supporting/refuting data points (count: 2 = both, 1 = one, 0 = neither)","max":2,"base":true},{"text":"Differential 2 - names it and gives >=3 supporting/refuting data points (count: 2 = both, 1 = one, 0 = neither)","max":2,"base":true},{"text":"Differential 3 - names it and gives >=3 supporting/refuting data points (count: 2 = both, 1 = one, 0 = neither)","max":2,"base":true},{"text":"Plan - states the diagnostic workup and the management steps (count: 2 = both, 1 = one, 0 = neither)","max":2,"base":true},{"text":"Teach-back - confirms patient understanding of the assessment and plan","max":1,"base":true,"verify":"sp"}]},{"section":"Closure","phase":"CLOSURE","rows":[{"text":"Invites final questions and addresses patient concerns","max":1,"base":true,"verify":"sp"}]}],"ros_options":[{"text":"Skin (rashes, lumps, sores, itching, color change) - criterion: asks >=3 of the 5","max":1},{"text":"HEENT (headache, vision change, hearing change, congestion, sore throat) - criterion: asks >=3 of the 5","max":1},{"text":"Respiratory (cough, dyspnea, wheeze, sputum, hemoptysis) - criterion: asks >=3 of the 5","max":1},{"text":"Cardiovascular (chest pain, palpitations, edema, orthopnea, PND) - criterion: asks >=3 of the 5","max":1},{"text":"Peripheral vascular (claudication, leg swelling, varicosities, cold extremities, non-healing wounds) - criterion: asks >=3 of the 5","max":1},{"text":"Gastrointestinal (nausea/vomiting, abdominal pain, bowel changes, blood in stool, heartburn) - criterion: asks >=3 of the 5","max":1},{"text":"Genitourinary (dysuria, frequency, hematuria, flank pain, discharge) - criterion: asks >=3 of the 5","max":1},{"text":"Musculoskeletal (joint pain, stiffness, swelling, weakness, back pain) - criterion: asks >=3 of the 5","max":1},{"text":"Neurologic (dizziness, numbness/tingling, weakness, seizures, syncope) - criterion: asks >=3 of the 5","max":1},{"text":"Psychiatric (mood, anxiety, sleep, memory, SI/HI) - criterion: asks >=3 of the 5","max":1},{"text":"Endocrine (heat/cold intolerance, polyuria/polydipsia, weight change, hair/skin change) - criterion: asks >=3 of the 4","max":1},{"text":"Hematologic/lymphatic (easy bruising, bleeding, swollen glands) - criterion: asks >=2 of the 3","max":1}]};
 
-function refLabel(u){
-  if(u.indexOf("physio-pedia")>-1) return "Watch on Physiopedia";
-  if(u.indexOf("stanfordmedicine25")>-1) return "See Stanford Medicine 25";
-  if(u.indexOf("youtube")>-1||u.indexOf("youtu.be")>-1) return "Watch on YouTube";
-  if(u.indexOf("geekymedics")>-1) return "See Geeky Medics";
-  return "Open reference";
-}
-DATA.forEach((sec,si)=>{
-  const d=document.createElement("details");d.className="sec";d.open=(si===0);
-  const sum=document.createElement("summary");
-  sum.innerHTML='<span class="chev">&#9654;</span><span class="secname">'+sec.title+
-    '</span><span class="secscore" id="ss'+si+'">0 / '+sec.max+'</span>';
-  d.appendChild(sum);
-  const bar=document.createElement("div");bar.className="secbar";bar.innerHTML='<i id="sb'+si+'"></i>';
-  d.appendChild(bar);
-  if(sec.script){const sc=document.createElement("div");sc.className="scriptcard";
-    sc.innerHTML='<div class="sclabel">'+sec.script.label+'</div><p class="sctext">'+sec.script.text+
-      '</p><p class="scnote">'+sec.script.note+'</p>';d.appendChild(sc);}
-  if(sec.trans){const tl=document.createElement("div");tl.className="transline";
-    tl.innerHTML='<b>Transition</b>'+sec.trans;d.appendChild(tl);}
-  const rows=document.createElement("div");rows.className="rows";
-  sec.items.forEach(it=>{
-    if(it.sub){const h=document.createElement("div");h.className="subhead";h.textContent=it.sub;rows.appendChild(h);return;}
-    const skey=it.k||it.id;
-    let tag="";
-    if(it.kind==="extra"){tag='<span class="tag practice">practice</span>';XMAX+=2;}
-    if(it.kind==="mirror")tag='<span class="tag linked">linked</span>';
-    const dim=(it.kind!=="counted")?" dim":"";
-    const LBL={say:"Try saying",narrate:"Narrate aloud",tip:"Tip",how:"How to"};
-    let htext=it.d+(it.kind==="mirror"?" Scores together with the matching HEENT check.":"");
-    const hcls="help "+(it.hk||"how")+((it.kind==="mirror")?" linknote":"");
-    const row=document.createElement("div");row.className="row"+dim;
-    row.dataset.key=skey;row.dataset.kind=it.kind;row.dataset.si=si;
-    row.innerHTML=
-      '<div class="rmain"><div class="rtop">'+
-        (it.d?'<button class="info" aria-label="Show guidance">i</button>':'<span class="noinfo"></span>')+
-        '<span class="txt">'+it.t+tag+'</span></div>'+
-        (it.d?('<div class="'+hcls+'" hidden><span class="hlabel">'+(LBL[it.hk]||"How to")+'</span>'+
-        '<span class="htext">'+htext+'</span>'+
-        (it.url?('<a class="reflink" href="'+it.url+'" target="_blank" rel="noopener">\u25B6 '+refLabel(it.url)+'</a>'+
-          '<span class="refnote">For reference. Follow your program and Bates for how you are graded.</span>'):'')+
-        '</div>'):'')+'</div>'+
-      '<div class="btns">'+
-        '<button data-v="2">2</button><button data-v="1">1</button><button data-v="0">0</button>'+
-      '</div>';
-    rows.appendChild(row);
-  });
-  d.appendChild(rows);app.appendChild(d);
-});
-document.getElementById("xmax").textContent=XMAX;
+const BREADTH_NOTE = "Programs may remove select items. The base items were selected to model the breadth a novice learner needs and the maneuvers tested on boards, even where practice has evolved. For standardized nationwide competence, teach the full breadth in the didactic phase and refine focused techniques and omissions through clinicals, residency, and practice.";
 
-function paintRow(row){
-  const v=state[row.dataset.key];
-  row.querySelectorAll(".btns button").forEach(b=>{
-    b.className=(String(v)===b.dataset.v)?("on"+b.dataset.v):"";
-  });
+let mode = "comp";
+const state = {
+  scores: {},
+  comp: { enabled: COMP.map(()=>true), local: COMP.map(()=>[]),
+          opt:{ros:true, ev:true} },
+  osce: { station: "comprehensive", inc: {}, ros: {}, local: {}, vitals: "verbalize", removed: {}, lens: "combined" },
+  practice: { dur: 15, history: [] }
+};
+try {
+  const s = JSON.parse(localStorage.getItem("rubric_v04")||"null");
+  if (s && s.comp && s.comp.local && s.comp.local.length===COMP.length){ Object.assign(state, s); }
+  if (!state.scores) state.scores = {};
+  if (!state.osce.inc) state.osce.inc = {};
+  if (!state.osce.ros) state.osce.ros = {};
+  if (!state.osce.vitals) state.osce.vitals = "verbalize";
+  if (!state.osce.removed) state.osce.removed = {};
+  if (!state.osce.lens) state.osce.lens = "combined";
+  if (!state.practice) state.practice = { dur: 15, history: [], src: "osce" };
+  if (!state.practice.history) state.practice.history = [];
+  if (!state.practice.src) state.practice.src = "osce";
+  const pn = localStorage.getItem("rubric_progname"); if (pn) setTimeout(()=>{document.getElementById("progname").textContent=pn;},0);
+} catch(e){}
+function persist(){ try{
+  localStorage.setItem("rubric_v04", JSON.stringify(state));
+  localStorage.setItem("rubric_progname", document.getElementById("progname").textContent);
+}catch(e){} }
+
+function esc(t){ return String(t).replace(/&(?!amp;|lt;|gt;|#)/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+/* ---------- engagement tracking (cookieless, invisible; no-op if blocked/offline) ---------- */
+var _gcFired = {};
+function gcEvent(path){ try{ if(window.goatcounter && window.goatcounter.count){ window.goatcounter.count({path:path, title:path, event:true}); } }catch(e){} }
+function gcOnce(path){ if(_gcFired[path]) return; _gcFired[path]=1; gcEvent(path); }
+function trackInteract(){
+  gcOnce("interact-first");
+  var n = state.scores ? Object.keys(state.scores).length : 0;
+  [10,25,50].forEach(function(m){ if(n>=m) gcOnce("depth-"+m); });
 }
-function recalc(){
-  let tot=0,xtot=0;
-  DATA.forEach((sec,si)=>{
-    let s=0;
-    sec.items.forEach(it=>{
-      if(it.sub)return;
-      const v=state[it.k||it.id];if(v==null)return;
-      if(it.kind==="counted")s+=v;
-      else if(it.kind==="extra")xtot+=v;   // mirror adds to neither
+
+/* ---------- scoring ---------- */
+function setScore(id,v){
+  if (state.scores[id]===v) delete state.scores[id]; else state.scores[id]=v;
+  trackInteract(); render();
+}
+function ckToggle(id,checked){ if(checked) state.scores[id]=1; else delete state.scores[id]; trackInteract(); render(); }
+function pickCells(id,mx){
+  const s=state.scores[id];
+  let h="";
+  for(let v=0;v<=mx;v++){
+    h+=`<span class="pick ${s===v?"on":""}" role="button" tabindex="0" onclick="setScore('${id}',${v})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setScore('${id}',${v})}">${v}</span>`;
+  }
+  return h;
+}
+
+function setMode(m){
+  mode=m;
+  document.getElementById("mComp").classList.toggle("on", m==="comp");
+  document.getElementById("mOsce").classList.toggle("on", m==="osce");
+  document.getElementById("mPrac").classList.toggle("on", m==="practice");
+  document.body.classList.toggle("practice", m==="practice");
+  document.getElementById("topclock").style.display = m==="practice" ? "" : "none";
+  document.getElementById("lensswitch").style.display = m==="osce" ? "" : "none";
+  render();
+}
+function setLens(l){ state.osce.lens=l; render(); }
+function syncLensBtns(){
+  const l=state.osce.lens||"combined";
+  document.getElementById("lContent").classList.toggle("on", l==="content");
+  document.getElementById("lComm").classList.toggle("on", l==="comm");
+  document.getElementById("lBoth").classList.toggle("on", l==="combined");
+}
+
+/* ---------- COMPREHENSIVE PE ---------- */
+function compCount(i){ let n=COMP[i].groups.reduce((a,g)=>a+g.items.filter(it=>!it.sub).length,0); return n+state.comp.local[i].length; }
+function asideComp(){
+  const o=state.comp.opt;
+  return `<div class="panel"><h2>Systems in this rubric</h2><div id="systoggles">`+
+    COMP.map((s,i)=>`<label class="toggle"><input type="checkbox" ${state.comp.enabled[i]?"checked":""} onchange="state.comp.enabled[${i}]=this.checked;render()"> ${esc(s.title)}<span class="pts">${compCount(i)}</span></label>`).join("")+
+    `</div><div class="mini"><button onclick="compAll(true)">All</button><button onclick="compAll(false)">None</button></div></div>
+    <div class="panel"><h2>Display</h2>
+      <label class="toggle"><input type="checkbox" ${o.ros?"checked":""} onchange="state.comp.opt.ros=this.checked;render()"> ROS screening lines</label>
+      <label class="toggle"><input type="checkbox" ${o.ev?"checked":""} onchange="state.comp.opt.ev=this.checked;render()"> Evidence adjunct notes</label></div>
+    <div class="panel about"><h2>About</h2><p>Base items are the published standard and are fixed for every program. Rows you add are marked <b>program-specific</b> and print shaded, so additions never blur into the shared standard. Check items as they are mastered or observed; the score populates automatically. Additions and scores save on this device.</p>
+      <p>${esc(BREADTH_NOTE)}</p>
+      <p>&copy; 2026 J. Moen &middot; CC BY-NC 4.0</p></div>`;
+}
+function compAll(v){ state.comp.enabled=COMP.map(()=>v); render(); }
+function compRow(it,id){
+  if(it.sub){ return `<tr class="item subrow"><td class="bx"></td><td class="what subc">${esc(it.text)}</td><td class="opts"></td></tr>`; }
+  const on = state.scores[id]===1;
+  return `<tr class="item"><td class="bx"><input type="checkbox" class="ck" ${on?"checked":""} onchange="ckToggle('${id}',this.checked)"></td><td class="what">${esc(it.text)}</td><td class="opts">${pickCells(id,1)}</td></tr>`;
+}
+function renderComp(){
+  const o=state.comp.opt; let html="", total=0, earned=0;
+  COMP.forEach((s,i)=>{
+    if(!state.comp.enabled[i]) return;
+    const n=compCount(i); total+=n;
+    html+=`<section class="sys"><div class="sys-head"><h3>${esc(s.title)}</h3><span class="pts">${n} items &middot; ${n} pts</span></div>`;
+    if(o.ros&&s.ros) html+=`<div class="ros"><b>ROS screen (ask &ge; 3):</b> ${esc(s.ros)}</div>`;
+    html+=`<table class="items">`;
+    s.groups.forEach((g,gi)=>{ html+=`<tr class="ghead"><td colspan="3">${esc(g.name)}</td></tr>`;
+      g.items.forEach((it,ii)=>{ const id="c:"+i+":"+gi+":"+ii; if(!it.sub) earned+=state.scores[id]||0; html+=compRow(it,id); }); });
+    if(state.comp.local[i].length){ html+=`<tr class="ghead"><td colspan="3">Program-specific additions</td></tr>`;
+      state.comp.local[i].forEach((t,li)=>{ const id="cl:"+i+":"+li; earned+=state.scores[id]||0;
+        html+=`<tr class="item local"><td class="bx"><input type="checkbox" class="ck" ${state.scores[id]===1?"checked":""} onchange="ckToggle('${id}',this.checked)"></td><td class="what">${esc(t)}<span class="local-chip">PROGRAM-SPECIFIC</span><button class="rm" onclick="state.comp.local[${i}].splice(${li},1);render()">&#x2715;</button></td><td class="opts">${pickCells(id,1)}</td></tr>`; }); }
+    html+=`<tr class="addrow"><td colspan="3"><input placeholder="+ Add a program-specific item to ${esc(s.title)} (Enter)" onkeydown="if(event.key==='Enter'&&this.value.trim()){state.comp.local[${i}].push(this.value.trim());render()}"></td></tr></table>`;
+    if(o.ev&&s.note) html+=`<div class="evnote"><b>Evidence adjunct:</b> ${esc(s.note)}</div>`;
+    html+=`</section>`;
+  });
+  document.getElementById("sheettitle").textContent="Standardized Physical Examination Rubric";
+  document.getElementById("sheetmeta").textContent="Comprehensive checklist · each item scored 0 / 1 (performed correctly / not)";
+  document.getElementById("osceBanner").innerHTML="";
+  document.getElementById("sheetfoot").innerHTML="<p>Base standard: <i>The Standardized Physical Examination</i> (J. Moen, 2026), CC BY-NC 4.0. Shaded rows are program-specific.</p><p>"+esc(BREADTH_NOTE)+"</p>";
+  return {html: html||"<p style='color:var(--muted);padding:30px 0'>No systems selected.</p>", total, earned};
+}
+
+/* ---------- OSCE / SOAP (single SOAP-ordered spine; focused = base + program picks) ---------- */
+function isComprehensive(){ return state.osce.station==="comprehensive"; }
+function secIncluded(si){ return isComprehensive() || !!state.osce.inc[si]; }
+function optSections(){
+  const out=[];
+  OSCE.spine.forEach((sec,si)=>{ if(sec.rows.some(r=>!r.base)) out.push(si); });
+  return out;
+}
+function localKey(si){ return "sp:"+state.osce.station+":"+si; }
+function osceAdd(si,val){ const k=localKey(si); (state.osce.local[k]=state.osce.local[k]||[]).push(val); render(); }
+function osceRm(si,li){ state.osce.local[localKey(si)].splice(li,1); render(); }
+function osceIncAll(v){ optSections().forEach(si=>{ state.osce.inc[si]=v; }); render(); }
+
+/* One shared model drives the on-screen sheet AND the Word export. */
+const ROWLABEL={};
+function osceModel(){
+  const secs=[];
+  OSCE.spine.forEach((sec,si)=>{
+    const inc=secIncluded(si);
+    const useAlt = sec.vitals_slot && state.osce.vitals!=="perform";
+    const src = useAlt ? sec.alt : sec.rows;
+    const rows=[];
+    src.forEach((row,ri)=>{
+      if(!(row.base||inc)) return;
+      const id=(useAlt?"ov:":"o:")+si+":"+ri;
+      ROWLABEL[id]=row.text;
+      if(state.osce.removed[id]) return;
+      rows.push({id, text:row.text, max:row.sub?0:(row.max||1), verify:row.verify, sub:row.sub,
+                 removable: !row.sub && row.text.indexOf("Special")===0});
     });
-    tot+=s;
-    const el=document.getElementById("ss"+si);if(el)el.textContent=s+" / "+sec.max;
-    const b=document.getElementById("sb"+si);if(b)b.style.width=(sec.max?100*s/sec.max:0)+"%";
+    if(sec.ros_slot){
+      OSCE.ros_options.forEach((o,oi)=>{ if(state.osce.ros[oi]) rows.push({id:"or:"+oi, text:o.text, max:o.max||1}); });
+    }
+    (state.osce.local[localKey(si)]||[]).forEach((t,li)=>rows.push({id:"ol:"+state.osce.station+":"+si+":"+li, text:t, max:1, local:true, li:li}));
+    if(rows.length) secs.push({si:si, phase:sec.phase, section:sec.section, rows:rows});
   });
-  document.getElementById("tscore").textContent=tot;
-  document.getElementById("xscore").textContent=xtot;
-  document.getElementById("tpct").textContent=Math.round(100*tot/248)+"%";
+  return secs;
 }
-const allRows=[...document.querySelectorAll(".row")];
-allRows.forEach(paintRow);recalc();
+function rmSpecial(id){
+  const label=ROWLABEL[id]||"This maneuver";
+  if(confirm('"'+label+'" is part of the national standard. It was selected to model full novice breadth and because it is tested on board examinations. Removing it means this rubric no longer matches the national standard.\n\nRemove it for your program anyway?')){
+    state.osce.removed[id]=label; render();
+  }
+}
+function restoreSpecial(id){ delete state.osce.removed[id]; render(); }
+function restoreAll(){ state.osce.removed={}; render(); }
 
-app.addEventListener("click",e=>{
-  const info=e.target.closest(".info");
-  if(info){const help=info.closest(".rtop").parent; }
-  if(info){const help=info.parentElement.parentElement.querySelector(".help");
-    const show=help.hidden;help.hidden=!show;info.classList.toggle("open",show);return;}
-  const b=e.target.closest(".btns button");if(!b)return;
-  const row=b.closest(".row");const k=row.dataset.key;const v=+b.dataset.v;
-  if(state[k]===v)delete state[k];else state[k]=v;
-  save();
-  // repaint every row that shares this key (linked pairs)
-  allRows.forEach(r=>{if(r.dataset.key===k)paintRow(r);});
-  recalc();
-});
-
-document.getElementById("allHelp").addEventListener("change",e=>{
-  const on=e.target.checked;
-  allRows.forEach(r=>{const h=r.querySelector(".help");const inf=r.querySelector(".info");
-    if(h)h.hidden=!on;if(inf)inf.classList.toggle("open",on);});
-});
-function resetAll(){
-  if(!confirm("Clear all scores on this device?"))return;
-  state={};save();allRows.forEach(paintRow);recalc();
+function asideOsce(){
+  const lens=state.osce.lens||"combined";
+  let h=`<div class="panel"><h2>Station template</h2>
+    <label class="radio"><input type="radio" name="stn" ${isComprehensive()?"checked":""} onchange="state.osce.station='comprehensive';render()"> Comprehensive (full breadth)</label>
+    <label class="radio"><input type="radio" name="stn" ${!isComprehensive()?"checked":""} onchange="state.osce.station='focused';render()"> Focused (program-defined)</label>
+    <p style="font-size:12px;color:var(--muted);margin:8px 0 0">One SOAP-ordered sheet. Base items (history, vitals, heart &amp; lung auscultation, A&amp;P, closure) are scored on every station in their natural position. A focused station is the base plus whichever exam sections your program selects.</p></div>`;
+  h+=`<div class="panel"><h2>Grading lens</h2>
+    <label class="radio"><input type="radio" name="lens" ${lens==="content"?"checked":""} onchange="setLens('content')"> SOAP content only</label>
+    <label class="radio"><input type="radio" name="lens" ${lens==="comm"?"checked":""} onchange="setLens('comm')"> Video observation (communication)</label>
+    <label class="radio"><input type="radio" name="lens" ${lens==="combined"?"checked":""} onchange="setLens('combined')"> Combined</label>
+    <p style="font-size:12px;color:var(--muted);margin:8px 0 0">The SOAP-note rater grades content; the standardized patient and a faculty video check grade the communication and process items. Switch lenses to score or print each instrument on its own sheet.</p></div>`;
+  h+=`<div class="panel"><h2>Vital signs in this station</h2>
+    <label class="radio"><input type="radio" name="vt" ${state.osce.vitals!=="perform"?"checked":""} onchange="state.osce.vitals='verbalize';render()"> Acknowledged &amp; verbalized (reported vitals)</label>
+    <label class="radio"><input type="radio" name="vt" ${state.osce.vitals==="perform"?"checked":""} onchange="state.osce.vitals='perform';render()"> Each vital performed by the student</label>
+    <p style="font-size:12px;color:var(--muted);margin:8px 0 0">Most stations report vitals from the chart; early OSCEs may require the student to take each one.</p></div>`;
+  h+=`<div class="panel"><h2>Pertinent ROS for this case</h2>`+
+    OSCE.ros_options.map((o,i)=>`<label class="toggle"><input type="checkbox" ${state.osce.ros[i]?"checked":""} onchange="state.osce.ros[${i}]=this.checked;render()"> ${esc(o.text.split(" (")[0])}</label>`).join("")+
+    `<p style="font-size:12px;color:var(--muted);margin:8px 0 0">Constitutional is always scored. Checked systems appear as scored rows in the Review of Systems section.</p></div>`;
+  if(!isComprehensive()){
+    h+=`<div class="panel"><h2>Exam sections in this station</h2>`+
+      optSections().map(si=>`<label class="toggle"><input type="checkbox" ${state.osce.inc[si]?"checked":""} onchange="state.osce.inc[${si}]=this.checked;render()"> ${esc(OSCE.spine[si].section)}</label>`).join("")+
+      `<div class="mini"><button onclick="osceIncAll(true)">All</button><button onclick="osceIncAll(false)">None</button></div></div>`;
+  }
+  const rmIds=Object.keys(state.osce.removed||{});
+  if(rmIds.length){
+    h+=`<div class="panel"><h2>Removed standard items</h2>`+
+      rmIds.map(id=>`<div class="toggle" style="justify-content:space-between;gap:10px"><span style="font-size:12.5px">${esc(state.osce.removed[id])}</span><button class="mini-restore" onclick="restoreSpecial('${id}')">Restore</button></div>`).join("")+
+      `<div class="mini"><button onclick="restoreAll()">Restore all</button></div>
+      <p style="font-size:11.5px;color:var(--muted);margin:8px 0 0">With items removed, this rubric no longer matches the national standard.</p></div>`;
+  }
+  h+=`<div class="rulebox"><h2>Who scores what</h2>
+      <div class="raters">
+        <div class="rater"><span class="k">SOAP note</span><span>drives the content checklist below &mdash; automatable, auditable; documented items are counted.</span></div>
+        <div class="rater"><span class="k">Faculty</span><span>a global rating of integrated performance, plus video spot-checks that deter over-documentation.</span></div>
+        <div class="rater"><span class="k">SP</span><span>scores communication: rapport, transitions, summaries, teach-back. Rows tagged <b>SP + faculty verify</b> are counted here and cross-verified by those two raters.</span></div>
+      </div></div>
+    <div class="panel about"><h2>About</h2><p>The base and selected sections are the fixed standard, identical for every program. Program-specific rows print shaded and chip-marked so they never blur into it. Click a score on each row; the total populates automatically. Additions and scores save on this device.</p>
+      <p>${esc(BREADTH_NOTE)}</p>
+      <p>&copy; 2026 J. Moen &middot; CC BY-NC 4.0</p></div>`;
+  return h;
+}
+function renderOsce(){
+  const model=osceModel();
+  const lens=state.osce.lens||"combined";
+  syncLensBtns();
+  /* content vs. video-observed subtotals across the whole station */
+  let cTot=0,cEarn=0,kTot=0,kEarn=0;
+  model.forEach(m=>m.rows.forEach(r=>{
+    if(r.verify){ kTot+=r.max; kEarn+=state.scores[r.id]||0; }
+    else { cTot+=r.max; cEarn+=state.scores[r.id]||0; }
+  }));
+  let html="", lastPhase=null;
+  html+=`<table class="items">`;
+  model.forEach(m=>{
+    const rows = lens==="content" ? m.rows.filter(r=>!r.verify)
+               : lens==="comm"    ? m.rows.filter(r=>r.verify)
+               : m.rows;
+    if(!rows.length) return;
+    if(m.phase && m.phase!==lastPhase){ html+=`<tr class="phase"><td colspan="2">${esc(m.phase)}</td></tr>`; lastPhase=m.phase; }
+    html+=`<tr class="ghead"><td colspan="2">${esc(m.section)}</td></tr>`;
+    rows.forEach(r=>{
+      if(r.sub){ html+=`<tr class="item subrow"><td class="what subc">${esc(r.text)}</td><td class="opts"></td></tr>`; return; }
+      let what=esc(r.text);
+      if(r.verify) what+=` <span class="vchip">SP + faculty verify</span>`;
+      if(r.removable) what+=` <button class="rmspec" title="Remove from this program&rsquo;s rubric" onclick="rmSpecial('${r.id}')">&#x2715;</button>`;
+      if(r.local) what+=`<span class="local-chip">PROGRAM-SPECIFIC</span><button class="rm" onclick="osceRm(${m.si},${r.li})">&#x2715;</button>`;
+      html+=`<tr class="item${r.local?" local":""}"><td class="what">${what}</td><td class="opts">${pickCells(r.id,r.max)}</td></tr>`;
+    });
+    if(lens!=="comm") html+=`<tr class="addrow"><td colspan="2"><input placeholder="+ Add program-specific item to ${esc(m.section)} (Enter)" onkeydown="if(event.key==='Enter'&&this.value.trim()){osceAdd(${m.si},this.value.trim())}"></td></tr>`;
+  });
+  html+=`</table>`;
+  const total = lens==="content"?cTot : lens==="comm"?kTot : cTot+kTot;
+  const earned= lens==="content"?cEarn: lens==="comm"?kEarn: cEarn+kEarn;
+  const label = isComprehensive() ? "Comprehensive station (full breadth)" : "Focused station (base + program-selected sections)";
+  const lensName = lens==="content"?"SOAP content lens":lens==="comm"?"Video-observation lens":"Combined lens (content + video)";
+  document.getElementById("sheettitle").textContent="OSCE Station Rubric";
+  document.getElementById("sheetmeta").textContent=label+" · "+lensName;
+  const lead = lens==="content"
+      ? "<b>SOAP content lens.</b> Only items the SOAP note can document are shown; the SOAP-note rater scores this sheet. Communication and process items move to the video-observation lens."
+      : lens==="comm"
+      ? "<b>Video-observation lens.</b> The process items a chart cannot capture: hand hygiene, identification, open-ended questioning, ICE, empathy, transitions, teach-back, and closure, in encounter order. Scored by the standardized patient and a faculty video check."
+      : "<b>Combined lens.</b> Every instrument on one sheet, in SOAP order. Use the toggle above to grade and print the SOAP content and the video-observed communication as separate scores.";
+  document.getElementById("osceBanner").innerHTML=`<div class="osce-banner">${lead} <span style="white-space:nowrap">Subtotals: SOAP content <b>${cEarn} / ${cTot}</b> &middot; Video observation <b>${kEarn} / ${kTot}</b>.</span></div>`;
+  document.getElementById("sheetfoot").innerHTML="<p>Items appear in SOAP order; base items are scored on every station. The SOAP-note rater scores the content lens; the standardized patient and a faculty video spot-check score the video lens. Shaded rows are program-specific additions.</p><p>"+esc(BREADTH_NOTE)+"</p><p>&copy; 2026 J. Moen &middot; CC BY-NC 4.0.</p>";
+  return {html, total, earned};
 }
 
-/* ---- timer (count-up stopwatch) ---- */
-let elapsed=0,running=false,tick=null,last=0;
-function fmt(ms){const s=Math.floor(ms/1000);const m=Math.floor(s/60);
-  return String(m).padStart(2,"0")+":"+String(s%60).padStart(2,"0");}
-function renderClock(){const c=document.getElementById("clock");c.textContent=fmt(elapsed);c.classList.toggle("run",running);}
-function toggleTimer(){
-  const btn=document.getElementById("tbtn");
-  if(running){running=false;clearInterval(tick);btn.textContent="Resume";btn.classList.remove("go");}
-  else{running=true;last=performance.now();
-    tick=setInterval(()=>{const now=performance.now();elapsed+=now-last;last=now;renderClock();},250);
-    btn.textContent="Pause";btn.classList.add("go");}
-  renderClock();
+/* ---------- PRACTICE (peer-graded repetition) ---------- */
+/* Practice scores live under "p|" keys so a practice run never touches the grading sheet. */
+const prac = { left: null, run: false, iv: null };
+function tfmt(s){ return Math.floor(s/60)+":"+String(s%60).padStart(2,"0"); }
+function pracLeft(){ if(prac.left==null) prac.left=state.practice.dur*60; return prac.left; }
+function pracDisp(){
+  const t=tfmt(pracLeft()), low=pracLeft()<=120;
+  const c=document.getElementById("pclock"); if(c){ c.textContent=t; c.classList.toggle("low",low); }
+  const tc=document.getElementById("topclock"); if(tc){ tc.textContent=t; tc.style.color=low?"#FF8A80":""; }
+  const b=document.getElementById("pstart"); if(b) b.textContent=prac.run?"Pause":(pracLeft()===state.practice.dur*60?"Start":"Resume");
 }
-function resetTimer(){running=false;clearInterval(tick);elapsed=0;
-  document.getElementById("tbtn").textContent="Start";document.getElementById("tbtn").classList.add("go");renderClock();}
-renderClock();
+function pracTick(){ prac.left--; if(prac.left<=0){ prac.left=0; pracPause(); } pracDisp(); }
+function pracStart(){
+  if(prac.run){ pracPause(); return; }
+  if(pracLeft()<=0) prac.left=state.practice.dur*60;
+  prac.run=true; prac.iv=setInterval(pracTick,1000); pracDisp();
+}
+function pracPause(){ prac.run=false; if(prac.iv){ clearInterval(prac.iv); prac.iv=null; } pracDisp(); }
+function pracReset(){ pracPause(); prac.left=state.practice.dur*60; pracDisp(); }
+function pracDur(v){ const n=Math.max(1,Math.min(120,parseInt(v,10)||15)); state.practice.dur=n; pracReset(); persist(); }
+function practiceSrc(){ return state.practice.src==="comp" ? "comp" : "osce"; }
+function practiceModel(){
+  if(practiceSrc()==="comp") return compModel().map(s=>({section:s.section, phase:null, rows:s.rows}));
+  return osceModel();
+}
+function pracTally(){
+  let total=0, earned=0; const missed=[];
+  practiceModel().forEach(m=>m.rows.forEach(r=>{
+    if(r.head||r.sub) return;
+    total+=r.max; const v=state.scores["p|"+r.id]||0; earned+=v;
+    if(v<r.max) missed.push(r.text.split(" (")[0]);
+  }));
+  return {total, earned, missed};
+}
+function finishAttempt(){
+  const t=pracTally();
+  if(!confirm("Save this attempt ("+t.earned+" / "+t.total+") and clear the sheet for the next run?")) return;
+  state.practice.history.unshift({when:new Date().toLocaleDateString()+" "+new Date().toLocaleTimeString([], {hour:"numeric",minute:"2-digit"}), score:t.earned, total:t.total, missed:t.missed});
+  if(state.practice.history.length>30) state.practice.history.length=30;
+  Object.keys(state.scores).forEach(k=>{ if(k.indexOf("p|")===0) delete state.scores[k]; });
+  pracReset(); render();
+}
+function clearHistory(){ if(confirm("Delete all saved attempts on this device?")){ state.practice.history=[]; render(); } }
+function asidePractice(){
+  const hist=state.practice.history, last=hist[0];
+  const isComp=practiceSrc()==="comp";
+  let h=`<div class="panel"><h2>Practice</h2>
+    <label class="radio"><input type="radio" name="psrc" ${!isComp?"checked":""} onchange="state.practice.src='osce';render()"> OSCE station</label>
+    <label class="radio"><input type="radio" name="psrc" ${isComp?"checked":""} onchange="state.practice.src='comp';render()"> Comprehensive PE checklist</label></div>`;
+  h+=`<div class="panel"><h2>Timer</h2>
+    <div class="tclock" id="pclock">${tfmt(pracLeft())}</div>
+    <div class="tdur"><label for="pdur">Minutes</label><input id="pdur" type="number" min="1" max="120" value="${state.practice.dur}" onchange="pracDur(this.value)"></div>
+    <div class="mini"><button id="pstart" onclick="pracStart()">${prac.run?"Pause":"Start"}</button><button onclick="pracReset()">Reset</button></div></div>`;
+  h+=`<div class="panel"><h2>This attempt</h2><button class="btn-finish" onclick="finishAttempt()">Finish &amp; save attempt</button></div>`;
+  if(last){
+    const shown=last.missed.slice(0,14);
+    h+=`<div class="panel"><h2>Missed last attempt (${last.missed.length})</h2>`+
+      (last.missed.length ? `<ul class="missed">${shown.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>${last.missed.length>shown.length?`<p style="font-size:11.5px;color:var(--muted);margin:6px 0 0">+ ${last.missed.length-shown.length} more</p>`:""}` : `<p style="font-size:12.5px;color:var(--muted);margin:0">Nothing missed. Full marks.</p>`)+
+      `</div>`;
+    h+=`<div class="panel"><h2>Attempt history</h2>`+
+      hist.slice(0,10).map(a=>`<div class="attempt"><span>${esc(a.when)}</span><span class="pct">${a.score} / ${a.total} (${a.total?Math.round(100*a.score/a.total):0}%)</span></div>`).join("")+
+      `<div class="mini"><button onclick="clearHistory()">Clear history</button></div></div>`;
+  }
+  h+=`<div class="panel about"><p>&copy; 2026 J. Moen &middot; CC BY-NC 4.0</p></div>`;
+  return h;
+}
+function renderPractice(){
+  const isComp=practiceSrc()==="comp";
+  const model=practiceModel();
+  let html="", total=0, earned=0, lastPhase=null;
+  html+=`<table class="items">`;
+  model.forEach(m=>{
+    if(m.phase && m.phase!==lastPhase){ html+=`<tr class="phase"><td colspan="2">${esc(m.phase)}</td></tr>`; lastPhase=m.phase; }
+    html+=`<tr class="ghead"><td colspan="2">${esc(m.section)}</td></tr>`;
+    m.rows.forEach(r=>{
+      if(r.head){ html+=`<tr class="ghead"><td colspan="2">${esc(r.head)}</td></tr>`; return; }
+      if(r.sub){ html+=`<tr class="item subrow"><td class="what subc">${esc(r.text)}</td><td class="opts"></td></tr>`; return; }
+      const pid="p|"+r.id;
+      total+=r.max; earned+=state.scores[pid]||0;
+      html+=`<tr class="item${r.local?" local":""}"><td class="what">${esc(r.text)}${r.local?` <span class="local-chip">PROGRAM-SPECIFIC</span>`:""}</td><td class="opts">${pickCells(pid,r.max)}</td></tr>`;
+    });
+  });
+  html+=`</table>`;
+  document.getElementById("sheettitle").textContent=isComp?"Practice: Comprehensive PE":"Practice Station";
+  document.getElementById("sheetmeta").textContent=(isComp?"Head-to-toe checklist":(isComprehensive()?"Comprehensive station":"Focused station"))+" · tap the score as each item is performed";
+  document.getElementById("osceBanner").innerHTML=`<div class="osce-banner"><b>Practice run.</b> Grade to the criterion: incorrect technique scores 0, same as omitted. Press <b>Finish &amp; save attempt</b> to log the score and missed items.</div>`;
+  document.getElementById("sheetfoot").innerHTML="<p>Practice attempts stay on this device and never affect the grading rubric.</p><p>&copy; 2026 J. Moen &middot; CC BY-NC 4.0.</p>";
+  return {html, total, earned};
+}
+
+function render(){
+  document.getElementById("aside").innerHTML = mode==="comp" ? asideComp() : mode==="osce" ? asideOsce() : asidePractice();
+  const r = mode==="comp" ? renderComp() : mode==="osce" ? renderOsce() : renderPractice();
+  document.getElementById("sections").innerHTML = r.html;
+  document.getElementById("scorechip").textContent = `Score ${r.earned} / ${r.total}`;
+  document.getElementById("sheettot").innerHTML = `Score: <span class="live">${r.earned}</span> / ${r.total}`;
+  if(mode==="practice") pracDisp();
+  persist();
+}
+
+/* ---------- export to Word (.doc) ---------- */
+function fname(){
+  const pn=(document.getElementById("progname").textContent||"rubric").replace(/[^A-Za-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,40)||"rubric";
+  if(mode==="practice") return pn+"-practice-"+(practiceSrc()==="comp"?"PE-checklist":"OSCE-"+state.osce.station);
+  let nm = pn+"-"+(mode==="comp"?"PE-checklist":"OSCE-"+state.osce.station);
+  if(mode==="osce" && (state.osce.lens||"combined")!=="combined") nm += "-"+(state.osce.lens==="content"?"SOAP-content":"video");
+  return nm;
+}
+function compModel(){
+  const secs=[];
+  COMP.forEach((s,i)=>{
+    if(!state.comp.enabled[i]) return;
+    const rows=[];
+    s.groups.forEach((g,gi)=>{ rows.push({head:g.name}); g.items.forEach((it,ii)=>rows.push({id:"c:"+i+":"+gi+":"+ii, text:it.text, max:it.sub?0:1, sub:it.sub})); });
+    if(state.comp.local[i].length){ rows.push({head:"Program-specific additions"});
+      state.comp.local[i].forEach((t,li)=>rows.push({id:"cl:"+i+":"+li, text:t, max:1, local:true})); }
+    secs.push({section:s.title, rows:rows});
+  });
+  return secs;
+}
+function exportDoc(){
+  const src = mode==="practice" ? practiceSrc() : mode;   // "comp" or "osce"
+  const isOsce = src!=="comp";
+  gcEvent("export-"+(mode==="practice"?"practice":(isOsce?"osce":"checklist")));
+  const lens = (isOsce && mode!=="practice") ? (state.osce.lens||"combined") : "combined";
+  const rawModel = mode==="practice" ? practiceModel() : (isOsce ? osceModel() : compModel());
+  const model = lens==="combined" ? rawModel : rawModel.map(m=>Object.assign({}, m, {rows:(m.rows||[]).filter(r=> r.head ? true : (lens==="content" ? !r.verify : r.verify))}));
+  const cols = isOsce ? 3 : 2;   // score columns: 0/1/2 or 0/1
+  const width = 1+cols;
+  let total=0, body="", lastPhase=null, hasVerify=false;
+  model.forEach(m=>{
+    let secPts=0, rowsHtml="";
+    m.rows.forEach(r=>{
+      if(r.head){ rowsHtml+=`<tr class="gh"><td colspan="${width}">${esc(r.head)}</td></tr>`; return; }
+      if(r.sub){ rowsHtml+=`<tr><td class="it" style="padding-left:22pt;font-style:italic;color:#5B6B7B">${esc(r.text)}</td><td colspan="${cols}"></td></tr>`; return; }
+      secPts+=r.max; total+=r.max;
+      if(r.verify) hasVerify=true;
+      const sc=state.scores[(mode==="practice"?"p|":"")+r.id];
+      let cells="";
+      for(let v=0;v<cols;v++){
+        cells += v<=r.max ? `<td class="sc${sc===v?" on":""}">${v}</td>` : `<td class="na">&nbsp;</td>`;
+      }
+      rowsHtml+=`<tr${r.local?' class="local"':''}><td class="it">${esc(r.text)}${r.verify?' <b>&dagger;</b>':''}${r.local?' <span class="lc">[PROGRAM-SPECIFIC]</span>':''}</td>${cells}</tr>`;
+    });
+    if(!rowsHtml) return;
+    if(isOsce && m.phase && m.phase!==lastPhase){ body+=`<tr class="ph"><td colspan="${width}">${esc(m.phase)}</td></tr>`; lastPhase=m.phase; }
+    body+=`<tr class="sh"><td>${esc(m.section)}</td><td colspan="${cols}" class="ssc">____ / ${secPts}</td></tr>`+rowsHtml;
+  });
+  body+=`<tr class="tt"><td>TOTAL</td><td colspan="${cols}" class="ssc">______ / ${total}</td></tr>`;
+  const prog=esc(document.getElementById("progname").textContent);
+  const lensSuffix = lens==="content" ? " (SOAP content)" : lens==="comm" ? " (Video observation)" : "";
+  const title = (isOsce ? "OSCE Station Rubric" : "Standardized Physical Examination Rubric") + lensSuffix;
+  const sub = document.getElementById("sheetmeta").textContent;
+  const docStyle="<style>"+
+    "body{font-family:Calibri,Arial,sans-serif;font-size:10.5pt;color:#1B2A3A;margin:24pt}"+
+    "h1{color:#022851;font-size:16pt;margin:0 0 2pt}"+
+    ".prog{color:#5B6B7B;font-size:9pt;letter-spacing:1pt;text-transform:uppercase;margin:0}"+
+    ".sub{color:#5B6B7B;font-size:9.5pt;margin:2pt 0 8pt}"+
+    ".ids{font-size:10.5pt;margin:6pt 0 10pt}"+
+    "table{width:100%;border-collapse:collapse}"+
+    "td{border:0.5pt solid #8894A2;padding:4pt 6pt;font-size:10pt;vertical-align:middle}"+
+    "td.it{width:78%}"+
+    "td.sc{width:30pt;text-align:center;font-size:11pt}"+
+    "td.sc.on{background:#FFBF00;font-weight:bold}"+
+    "td.na{background:#E8E8E8}"+
+    "tr.ph td{background:#022851;color:#FFFFFF;font-weight:bold;font-size:9pt;letter-spacing:1.5pt;text-transform:uppercase}"+
+    "tr.sh td{background:#E7EDF4;color:#022851;font-weight:bold;font-size:10.5pt}"+
+    "tr.gh td{background:#F5F7FA;color:#022851;font-size:8pt;font-weight:bold;letter-spacing:.5pt;text-transform:uppercase}"+
+    ".ssc{text-align:right;font-weight:bold;white-space:nowrap}"+
+    "tr.local td{background:#FFF8E1}"+
+    ".lc{color:#8A6D00;font-size:7.5pt;font-weight:bold}"+
+    "tr.tt td{background:#FFBF00;color:#022851;font-weight:bold;font-size:12pt}"+
+    ".leg{color:#5B6B7B;font-size:8.5pt;margin-top:8pt}"+
+    "</style>";
+  const legend=(hasVerify?"&dagger; Counted on this checklist and cross-verified by the standardized-patient communication score and faculty video spot-check. ":"")+
+    "Circle the earned score on each row; incorrect technique scores 0. Gray cells do not apply. "+esc(BREADTH_NOTE)+" &copy; 2026 J. Moen, CC BY-NC 4.0.";
+  const html="<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>"+
+    "<head><meta charset='utf-8'><title>"+esc(fname())+"</title>"+docStyle+"</head><body>"+
+    `<p class="prog">${prog}</p><h1>${title}</h1><p class="sub">${esc(sub)}</p>`+
+    `<p class="ids">Student ______________________ &nbsp;&nbsp; Evaluator ______________________ &nbsp;&nbsp; Date ____________ &nbsp;&nbsp; <b>Score ______ / ${total}</b></p>`+
+    `<table>${body}</table><p class="leg">${legend}</p></body></html>`;
+  const blob=new Blob(["﻿"+html],{type:"application/msword"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=fname()+".doc";
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(()=>URL.revokeObjectURL(a.href),1500);
+}
+
+document.getElementById("progname").addEventListener("input", persist);
+render();
 </script>
+
+<!-- Cookieless, invisible usage analytics (GoatCounter). No visible element is rendered to users. -->
+<script data-goatcounter="https://jmucdhealth.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
 </body>
 </html>
