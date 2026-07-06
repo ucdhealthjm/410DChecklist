@@ -191,6 +191,11 @@ const DATA=[{"title": "Setting the Stage & Information Gathering", "max": 12, "i
 const KEY="practice_410d_v2";
 let state=JSON.parse(localStorage.getItem(KEY)||"{}");
 function save(){localStorage.setItem(KEY,JSON.stringify(state));}
+/* ---- engagement tracking (cookieless, invisible; renders nothing; no-op if blocked/offline) ---- */
+var _gcFired={};
+function gcEvent(path){try{if(window.goatcounter&&window.goatcounter.count){window.goatcounter.count({path:path,title:path,event:true});}}catch(e){}}
+function gcOnce(path){if(_gcFired[path])return;_gcFired[path]=1;gcEvent(path);}
+function trackInteract(){try{gcOnce("interact-first");var n=Object.keys(state).length;[10,25,50].forEach(function(m){if(n>=m)gcOnce("depth-"+m);});}catch(e){}}
 const app=document.getElementById("app");
 let XMAX=0;
 
@@ -280,7 +285,7 @@ app.addEventListener("click",e=>{
   const b=e.target.closest(".btns button");if(!b)return;
   const row=b.closest(".row");const k=row.dataset.key;const v=+b.dataset.v;
   if(state[k]===v)delete state[k];else state[k]=v;
-  save();
+  save(); trackInteract();
   // repaint every row that shares this key (linked pairs)
   allRows.forEach(r=>{if(r.dataset.key===k)paintRow(r);});
   recalc();
@@ -304,7 +309,7 @@ function renderClock(){const c=document.getElementById("clock");c.textContent=fm
 function toggleTimer(){
   const btn=document.getElementById("tbtn");
   if(running){running=false;clearInterval(tick);btn.textContent="Resume";btn.classList.remove("go");}
-  else{running=true;last=performance.now();
+  else{running=true;gcOnce("timer-start");last=performance.now();
     tick=setInterval(()=>{const now=performance.now();elapsed+=now-last;last=now;renderClock();},250);
     btn.textContent="Pause";btn.classList.add("go");}
   renderClock();
@@ -313,5 +318,10 @@ function resetTimer(){running=false;clearInterval(tick);elapsed=0;
   document.getElementById("tbtn").textContent="Start";document.getElementById("tbtn").classList.add("go");renderClock();}
 renderClock();
 </script>
+
+<!-- Cookieless, invisible usage analytics (GoatCounter). No visible element is rendered to users. -->
+<script data-goatcounter="https://jmucdhealth.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
 </body>
 </html>
